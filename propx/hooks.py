@@ -1,249 +1,56 @@
 app_name = "propx"
+
+fixtures = [
+    {
+        "doctype": "Workflow",
+        "filters": [["name", "=", "Lease Approval Workflow"]]
+    }
+]
 app_title = "PropX"
 app_publisher = "Quantbit Technologies"
 app_description = "Property Management Platform"
 app_email = "contact@quantbit.io"
 app_license = "agpl-3.0"
 
-# Apps
-# ------------------
-
-# required_apps = []
-
-# Each item in the list will be shown as an app in the apps page
-# add_to_apps_screen = [
-# 	{
-# 		"name": "propx",
-# 		"logo": "/assets/propx/logo.png",
-# 		"title": "PropX",
-# 		"route": "/propx",
-# 		"has_permission": "propx.api.permission.has_app_permission"
-# 	}
-# ]
-
-# Includes in <head>
-# ------------------
-
-# include js, css files in header of desk.html
-# app_include_css = "/assets/propx/css/propx.css"
-# app_include_js = "/assets/propx/js/propx.js"
-
-# include js, css files in header of web template
-# web_include_css = "/assets/propx/css/propx.css"
-# web_include_js = "/assets/propx/js/propx.js"
-
-# include custom scss in every website theme (without file extension ".scss")
-# website_theme_scss = "propx/public/scss/website"
-
-# include js, css files in header of web form
-# webform_include_js = {"doctype": "public/js/doctype.js"}
-# webform_include_css = {"doctype": "public/css/doctype.css"}
-
-# include js in page
-# page_js = {"page" : "public/js/file.js"}
-
-# include js in doctype views
-# doctype_js = {"doctype" : "public/js/doctype.js"}
-# doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
-# doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
-# doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
-
-# Svg Icons
-# ------------------
-# include app icons in desk
-# app_include_icons = "propx/public/icons.svg"
-
-# Home Pages
-# ----------
-
-# application home page (will override Website Settings)
-# home_page = "login"
-
-# website user home page (by Role)
-# role_home_page = {
-# 	"Role": "home_page"
-# }
-
-# Generators
-# ----------
-
-# automatically create page for each record of this doctype
-# website_generators = ["Web Page"]
-
-# Jinja
-# ----------
-
-# add methods and filters to jinja environment
-# jinja = {
-# 	"methods": "propx.utils.jinja_methods",
-# 	"filters": "propx.utils.jinja_filters"
-# }
-
 # Installation
-# ------------
+after_install = "propx.install.after_install"
 
-# before_install = "propx.install.before_install"
-# after_install = "propx.install.after_install"
-
-# Uninstallation
-# ------------
-
-# before_uninstall = "propx.uninstall.before_uninstall"
-# after_uninstall = "propx.uninstall.after_uninstall"
-
-# Integration Setup
-# ------------------
-# To set up dependencies/integrations with other apps
-# Name of the app being installed is passed as an argument
-
-# before_app_install = "propx.utils.before_app_install"
-# after_app_install = "propx.utils.after_app_install"
-
-# Integration Cleanup
-# -------------------
-# To clean up dependencies/integrations with other apps
-# Name of the app being uninstalled is passed as an argument
-
-# before_app_uninstall = "propx.utils.before_app_uninstall"
-# after_app_uninstall = "propx.utils.after_app_uninstall"
-
-# Desk Notifications
-# ------------------
-# See frappe.core.notifications.get_notification_config
-
-# notification_config = "propx.notifications.get_notification_config"
-
-# Permissions
-# -----------
-# Permissions evaluated in scripted ways
-
-# permission_query_conditions = {
-# 	"Event": "frappe.desk.doctype.event.event.get_permission_query_conditions",
-# }
-#
-# has_permission = {
-# 	"Event": "frappe.desk.doctype.event.event.has_permission",
-# }
-
-# DocType Class
-# ---------------
-# Override standard doctype classes
-
-# override_doctype_class = {
-# 	"ToDo": "custom_app.overrides.CustomToDo"
-# }
-
-# Document Events
-# ---------------
-# Hook on document methods and events
-
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+# After every bench migrate: re-apply custom fields so deferred Link fields
+# (propx_lease, propx_unit, propx_property) get created once those DocTypes exist.
+after_migrate = ["propx.property_management.setup.custom_fields.apply_all"]
 
 # Scheduled Tasks
-# ---------------
+scheduler_events = {
+    "hourly": [
+        "propx.property_management.tasks.check_sla_breaches",
+    ],
+    "daily": [
+        "propx.property_management.tasks.update_vacancy_days",
+        "propx.property_management.tasks.send_lease_expiry_alerts",
+        "propx.property_management.tasks.apply_due_rent_escalations",
+        "propx.property_management.tasks.send_pdc_due_reminders",
+        "propx.property_management.tasks.generate_ppm_work_orders",
+        "propx.property_management.tasks.update_coi_statuses",
+        "propx.property_management.utils.billing_utils.apply_late_fees",
+    ],
+    "monthly": [
+        "propx.property_management.utils.billing_utils.generate_monthly_invoices",
+        "propx.property_management.utils.billing_utils.generate_parking_invoices",
+    ],
+}
 
-# scheduler_events = {
-# 	"all": [
-# 		"propx.tasks.all"
-# 	],
-# 	"daily": [
-# 		"propx.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"propx.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"propx.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"propx.tasks.monthly"
-# 	],
-# }
-
-# Testing
-# -------
-
-# before_tests = "propx.install.before_tests"
-
-# Overriding Methods
-# ------------------------------
-#
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "propx.event.get_events"
-# }
-#
-# each overriding function accepts a `data` argument;
-# generated from the base implementation of the doctype dashboard,
-# along with any modifications made in other Frappe apps
-# override_doctype_dashboards = {
-# 	"Task": "propx.task.get_dashboard_data"
-# }
-
-# exempt linked doctypes from being automatically cancelled
-#
-# auto_cancel_exempted_doctypes = ["Auto Repeat"]
-
-# Ignore links to specified DocTypes when deleting documents
-# -----------------------------------------------------------
-
-# ignore_links_on_delete = ["Communication", "ToDo"]
-
-# Request Events
-# ----------------
-# before_request = ["propx.utils.before_request"]
-# after_request = ["propx.utils.after_request"]
-
-# Job Events
-# ----------
-# before_job = ["propx.utils.before_job"]
-# after_job = ["propx.utils.after_job"]
-
-# User Data Protection
-# --------------------
-
-# user_data_fields = [
-# 	{
-# 		"doctype": "{doctype_1}",
-# 		"filter_by": "{filter_by}",
-# 		"redact_fields": ["{field_1}", "{field_2}"],
-# 		"partial": 1,
-# 	},
-# 	{
-# 		"doctype": "{doctype_2}",
-# 		"filter_by": "{filter_by}",
-# 		"partial": 1,
-# 	},
-# 	{
-# 		"doctype": "{doctype_3}",
-# 		"strict": False,
-# 	},
-# 	{
-# 		"doctype": "{doctype_4}"
-# 	}
-# ]
-
-# Authentication and authorization
-# --------------------------------
-
-# auth_hooks = [
-# 	"propx.auth.validate"
-# ]
-
-# Automatically update python controller files with type annotations for this app.
-# export_python_type_annotations = True
-
-# default_log_clearing_doctypes = {
-# 	"Logging DocType Name": 30  # days to retain logs
-# }
-
-# Translation
-# ------------
-# List of apps whose translatable strings should be excluded from this app's translations.
-# ignore_translatable_strings_from = []
-
+# Document Events
+doc_events = {
+    "Customer": {
+        "after_save": "propx.property_management.hooks_on_customer.after_save"
+    },
+    "Property Unit": {
+        "on_update": "propx.property_management.api.listing_api.auto_create_listing"
+    },
+    "Company": {
+        "after_insert": "propx.property_management.setup.accounts_setup.on_company_insert"
+    },
+    "Lease": {
+        "on_submit": "propx.property_management.api.inspection_api.create_move_in_inspection"
+    },
+}

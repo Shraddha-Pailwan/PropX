@@ -1,0 +1,45 @@
+{
+  "actions": [],
+  "creation": "2026-03-31 00:00:00.000000",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "property",
+    "gross_rent_collected",
+    "occupancy_rate"
+  ],
+  "fields": [
+    {
+      "fieldname": "property",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Property",
+      "options": "Property",
+      "reqd": 1
+    },
+    {
+      "fieldname": "gross_rent_collected",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Gross Rent Collected"
+    },
+    {
+      "fieldname": "occupancy_rate",
+      "fieldtype": "Percent",
+      "in_list_view": 1,
+      "label": "Occupancy Rate"
+    }
+  ],
+  "index_web_pages_for_search": 0,
+  "istable": 1,
+  "links": [],
+  "modified": "2026-03-31 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Property Management",
+  "name": "Owner Disbursement Property",
+  "owner": "Administrator",
+  "permissions": [],
+  "sort_field": "modified",
+  "sort_order": "DESC"
+}

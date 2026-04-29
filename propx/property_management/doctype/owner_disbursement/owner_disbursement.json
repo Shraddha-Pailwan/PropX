@@ -1,0 +1,207 @@
+{
+  "actions": [],
+  "autoname": "format:DISB-{YYYY}{MM}-{###}",
+  "creation": "2026-03-31 00:00:00.000000",
+  "doctype": "DocType",
+  "document_type": "Document",
+  "editable_grid": 0,
+  "engine": "InnoDB",
+  "field_order": [
+    "owner",
+    "company",
+    "period_from",
+    "period_to",
+    "properties",
+    "financials_section",
+    "gross_rent",
+    "management_fee_pct",
+    "management_fee",
+    "col_break_fin",
+    "maintenance_deductions",
+    "municipality_fees",
+    "other_deductions",
+    "net_disbursement",
+    "payment_section",
+    "status",
+    "payment_date",
+    "payment_reference",
+    "bank_transfer_ref",
+    "statement_pdf",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "owner",
+      "fieldtype": "Link",
+      "in_list_view": 1,
+      "label": "Owner",
+      "options": "Customer",
+      "reqd": 1
+    },
+    {
+      "fieldname": "company",
+      "fieldtype": "Link",
+      "label": "Company",
+      "options": "Company",
+      "reqd": 1
+    },
+    {
+      "fieldname": "period_from",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Period From",
+      "reqd": 1
+    },
+    {
+      "fieldname": "period_to",
+      "fieldtype": "Date",
+      "in_list_view": 1,
+      "label": "Period To",
+      "reqd": 1
+    },
+    {
+      "fieldname": "properties",
+      "fieldtype": "Table",
+      "label": "Properties",
+      "options": "Owner Disbursement Property"
+    },
+    {
+      "fieldname": "financials_section",
+      "fieldtype": "Section Break",
+      "label": "Financials"
+    },
+    {
+      "fieldname": "gross_rent",
+      "fieldtype": "Currency",
+      "label": "Gross Rent Collected",
+      "read_only": 1
+    },
+    {
+      "default": "5",
+      "fieldname": "management_fee_pct",
+      "fieldtype": "Percent",
+      "label": "Management Fee %"
+    },
+    {
+      "fieldname": "management_fee",
+      "fieldtype": "Currency",
+      "label": "Management Fee",
+      "read_only": 1
+    },
+    {
+      "fieldname": "col_break_fin",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "maintenance_deductions",
+      "fieldtype": "Currency",
+      "label": "Maintenance Deductions"
+    },
+    {
+      "fieldname": "municipality_fees",
+      "fieldtype": "Currency",
+      "label": "Municipality Fees"
+    },
+    {
+      "fieldname": "other_deductions",
+      "fieldtype": "Currency",
+      "label": "Other Deductions"
+    },
+    {
+      "bold": 1,
+      "fieldname": "net_disbursement",
+      "fieldtype": "Currency",
+      "in_list_view": 1,
+      "label": "Net Disbursement",
+      "read_only": 1
+    },
+    {
+      "fieldname": "payment_section",
+      "fieldtype": "Section Break",
+      "label": "Payment Details"
+    },
+    {
+      "default": "Draft",
+      "fieldname": "status",
+      "fieldtype": "Select",
+      "in_list_view": 1,
+      "label": "Status",
+      "options": "Draft\nApproved\nPaid\nDisputed"
+    },
+    {
+      "fieldname": "payment_date",
+      "fieldtype": "Date",
+      "label": "Payment Date"
+    },
+    {
+      "fieldname": "payment_reference",
+      "fieldtype": "Data",
+      "label": "Payment Reference"
+    },
+    {
+      "fieldname": "bank_transfer_ref",
+      "fieldtype": "Data",
+      "label": "Bank Transfer Reference"
+    },
+    {
+      "fieldname": "statement_pdf",
+      "fieldtype": "Attach",
+      "label": "Owner Statement PDF"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Text",
+      "label": "Notes"
+    }
+  ],
+  "index_web_pages_for_search": 0,
+  "links": [],
+  "modified": "2026-03-31 00:00:00.000000",
+  "modified_by": "Administrator",
+  "module": "Property Management",
+  "name": "Owner Disbursement",
+  "naming_rule": "Expression (old style)",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 1,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "PropX Admin",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 1,
+      "delete": 0,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Accountant",
+      "share": 0,
+      "write": 1
+    },
+    {
+      "create": 0,
+      "delete": 0,
+      "email": 0,
+      "export": 0,
+      "print": 1,
+      "read": 1,
+      "report": 0,
+      "role": "Property Owner",
+      "share": 0,
+      "write": 0
+    }
+  ],
+  "sort_field": "modified",
+  "sort_order": "DESC",
+  "title_field": "owner",
+  "track_changes": 1
+}

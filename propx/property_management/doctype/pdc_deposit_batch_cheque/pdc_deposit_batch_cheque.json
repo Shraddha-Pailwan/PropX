@@ -1,0 +1,75 @@
+{
+ "actions": [],
+ "creation": "2026-03-31 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "pdc_register",
+  "cheque_number",
+  "bank_name",
+  "amount",
+  "cheque_date",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "pdc_register",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "PDC Register",
+   "options": "PDC Register",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "pdc_register.cheque_number",
+   "fieldname": "cheque_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Cheque Number",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "pdc_register.bank_name",
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Bank Name",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "pdc_register.amount",
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "pdc_register.cheque_date",
+   "fieldname": "cheque_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Cheque Date",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "pdc_register.status",
+   "fieldname": "status",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Status",
+   "read_only": 1
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-31 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "PDC Deposit Batch Cheque",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "cheque_date",
+ "sort_order": "ASC",
+ "states": []
+}

@@ -1,0 +1,334 @@
+{
+ "actions": [],
+ "autoname": "format:{property}-{unit_number}",
+ "creation": "2026-03-30 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "unit_number",
+  "property",
+  "floor",
+  "property_category",
+  "section_classification",
+  "usage_type",
+  "sub_type",
+  "furnished_status",
+  "section_dimensions",
+  "area_sqft",
+  "area_sqm",
+  "bedrooms",
+  "bathrooms",
+  "column_break_dim",
+  "parking_spaces",
+  "section_financial",
+  "asking_rent_annual",
+  "last_agreed_rent",
+  "market_rent_benchmark",
+  "is_vat_applicable",
+  "column_break_fin",
+  "service_charge_annual",
+  "security_deposit_months",
+  "section_tenancy",
+  "status",
+  "current_lease",
+  "current_tenant",
+  "column_break_ten",
+  "vacancy_since",
+  "days_vacant",
+  "section_gcc",
+  "ejari_unit_number",
+  "dewa_account_number",
+  "municipality_unit_code",
+  "section_media",
+  "unit_photos",
+  "floor_plan_image",
+  "section_computed",
+  "total_revenue_ytd",
+  "maintenance_cost_ytd"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "fieldname": "unit_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Unit Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "floor",
+   "fieldtype": "Link",
+   "label": "Floor",
+   "options": "Property Floor"
+  },
+  {
+   "fieldname": "property_category",
+   "fieldtype": "Select",
+   "label": "Property Category",
+   "options": "Residential\nCommercial\nIndustrial\nMixed-Use\nShort-Term Rental",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_classification",
+   "fieldtype": "Section Break",
+   "label": "Classification"
+  },
+  {
+   "fieldname": "usage_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Usage Type",
+   "options": "Residential\nCommercial\nIndustrial\nShort-Term Rental\nStorage\nParking\nCommon Area",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sub_type",
+   "fieldtype": "Select",
+   "label": "Sub Type",
+   "options": "Studio\n1 Bedroom\n2 Bedroom\n3 Bedroom\n4+ Bedroom\nPenthouse\nOffice\nRetail Shop\nShowroom\nWarehouse\nLab\nServiced Apartment"
+  },
+  {
+   "fieldname": "furnished_status",
+   "fieldtype": "Select",
+   "label": "Furnished Status",
+   "options": "Unfurnished\nSemi-Furnished\nFurnished"
+  },
+  {
+   "fieldname": "section_dimensions",
+   "fieldtype": "Section Break",
+   "label": "Dimensions"
+  },
+  {
+   "fieldname": "area_sqft",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Area (sqft)"
+  },
+  {
+   "fieldname": "area_sqm",
+   "fieldtype": "Float",
+   "label": "Area (sqm)",
+   "read_only": 1,
+   "description": "Auto-calculated: sqft \u00d7 0.0929"
+  },
+  {
+   "fieldname": "bedrooms",
+   "fieldtype": "Int",
+   "label": "Bedrooms"
+  },
+  {
+   "fieldname": "bathrooms",
+   "fieldtype": "Float",
+   "label": "Bathrooms"
+  },
+  {
+   "fieldname": "column_break_dim",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "parking_spaces",
+   "fieldtype": "Int",
+   "label": "Parking Spaces"
+  },
+  {
+   "fieldname": "section_financial",
+   "fieldtype": "Section Break",
+   "label": "Financial"
+  },
+  {
+   "fieldname": "asking_rent_annual",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Asking Rent (Annual)"
+  },
+  {
+   "fieldname": "last_agreed_rent",
+   "fieldtype": "Currency",
+   "label": "Last Agreed Rent"
+  },
+  {
+   "fieldname": "market_rent_benchmark",
+   "fieldtype": "Currency",
+   "label": "Market Rent Benchmark",
+   "description": "For AI pricing comparison"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_vat_applicable",
+   "fieldtype": "Check",
+   "label": "VAT Applicable",
+   "description": "Auto-set: Residential=0, Commercial=1"
+  },
+  {
+   "fieldname": "column_break_fin",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "service_charge_annual",
+   "fieldtype": "Currency",
+   "label": "Service Charge (Annual)"
+  },
+  {
+   "default": "2",
+   "fieldname": "security_deposit_months",
+   "fieldtype": "Int",
+   "label": "Security Deposit (months)"
+  },
+  {
+   "fieldname": "section_tenancy",
+   "fieldtype": "Section Break",
+   "label": "Current Tenancy"
+  },
+  {
+   "default": "Vacant",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Vacant\nOccupied\nReserved\nUnder Maintenance\nUnder Renovation\nDecommissioned",
+   "reqd": 1
+  },
+  {
+   "fieldname": "current_lease",
+   "fieldtype": "Link",
+   "label": "Current Lease",
+   "options": "Lease",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_tenant",
+   "fieldtype": "Link",
+   "label": "Current Tenant",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ten",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "vacancy_since",
+   "fieldtype": "Date",
+   "label": "Vacant Since",
+   "read_only": 1
+  },
+  {
+   "fieldname": "days_vacant",
+   "fieldtype": "Int",
+   "label": "Days Vacant",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_gcc",
+   "fieldtype": "Section Break",
+   "label": "GCC Compliance"
+  },
+  {
+   "fieldname": "ejari_unit_number",
+   "fieldtype": "Data",
+   "label": "Ejari Unit Number"
+  },
+  {
+   "fieldname": "dewa_account_number",
+   "fieldtype": "Data",
+   "label": "DEWA Account Number"
+  },
+  {
+   "fieldname": "municipality_unit_code",
+   "fieldtype": "Data",
+   "label": "Municipality Unit Code"
+  },
+  {
+   "fieldname": "section_media",
+   "fieldtype": "Section Break",
+   "label": "Media"
+  },
+  {
+   "fieldname": "unit_photos",
+   "fieldtype": "Table",
+   "label": "Unit Photos",
+   "options": "Unit Photo"
+  },
+  {
+   "fieldname": "floor_plan_image",
+   "fieldtype": "Attach Image",
+   "label": "Floor Plan Image"
+  },
+  {
+   "fieldname": "section_computed",
+   "fieldtype": "Section Break",
+   "label": "Computed (YTD)"
+  },
+  {
+   "fieldname": "total_revenue_ytd",
+   "fieldtype": "Currency",
+   "label": "Total Revenue YTD",
+   "read_only": 1
+  },
+  {
+   "fieldname": "maintenance_cost_ytd",
+   "fieldtype": "Currency",
+   "label": "Maintenance Cost YTD",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-03-30 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Property Unit",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Lease Manager",
+   "select": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Maintenance Technician",
+   "select": 1
+  },
+  {
+   "if_owner": 1,
+   "read": 1,
+   "role": "Tenant",
+   "select": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "unit_number",
+ "track_changes": 1
+}

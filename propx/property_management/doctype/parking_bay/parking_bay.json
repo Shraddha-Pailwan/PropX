@@ -1,0 +1,188 @@
+{
+ "actions": [],
+ "autoname": "format:PARK-{####}",
+ "creation": "2026-03-31 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_identity",
+  "property",
+  "bay_number",
+  "bay_label",
+  "level",
+  "bay_type",
+  "section_ev",
+  "has_ev_charger",
+  "ev_charger_type",
+  "section_allocation",
+  "allocated_to_unit",
+  "allocated_to_tenant",
+  "monthly_charge",
+  "currency",
+  "is_for_sale",
+  "sale_price",
+  "section_status",
+  "status",
+  "current_parking_lease"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_identity",
+   "fieldtype": "Section Break",
+   "label": "Bay Details"
+  },
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bay_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Bay Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bay_label",
+   "fieldtype": "Data",
+   "label": "Bay Label",
+   "description": "e.g. B1-045, Level 2"
+  },
+  {
+   "fieldname": "level",
+   "fieldtype": "Data",
+   "label": "Level",
+   "description": "Basement 1, Ground, Podium..."
+  },
+  {
+   "fieldname": "bay_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Bay Type",
+   "options": "Covered\nUncovered\nValet\nMotorbike\nEV Charging",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_ev",
+   "fieldtype": "Section Break",
+   "label": "EV Charging"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_ev_charger",
+   "fieldtype": "Check",
+   "label": "Has EV Charger"
+  },
+  {
+   "depends_on": "eval:doc.has_ev_charger==1",
+   "fieldname": "ev_charger_type",
+   "fieldtype": "Select",
+   "label": "EV Charger Type",
+   "options": "\nType 1\nType 2\nCCS\nCHAdeMO"
+  },
+  {
+   "fieldname": "section_allocation",
+   "fieldtype": "Section Break",
+   "label": "Allocation"
+  },
+  {
+   "fieldname": "allocated_to_unit",
+   "fieldtype": "Link",
+   "label": "Allocated to Unit",
+   "options": "Property Unit"
+  },
+  {
+   "fieldname": "allocated_to_tenant",
+   "fieldtype": "Link",
+   "label": "Allocated to Tenant",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "monthly_charge",
+   "fieldtype": "Currency",
+   "label": "Monthly Charge"
+  },
+  {
+   "default": "AED",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_for_sale",
+   "fieldtype": "Check",
+   "label": "For Sale"
+  },
+  {
+   "depends_on": "eval:doc.is_for_sale==1",
+   "fieldname": "sale_price",
+   "fieldtype": "Currency",
+   "label": "Sale Price"
+  },
+  {
+   "fieldname": "section_status",
+   "fieldtype": "Section Break",
+   "label": "Status"
+  },
+  {
+   "default": "Available",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Available\nAllocated to Unit\nRented Separately\nReserved\nOut of Service"
+  },
+  {
+   "fieldname": "current_parking_lease",
+   "fieldtype": "Link",
+   "label": "Current Parking Lease",
+   "options": "Parking Lease",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-03-31 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Parking Bay",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Lease Manager",
+   "select": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Maintenance Technician",
+   "select": 1
+  }
+ ],
+ "sort_field": "bay_number",
+ "sort_order": "ASC",
+ "states": []
+}

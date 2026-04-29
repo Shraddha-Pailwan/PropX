@@ -1,0 +1,129 @@
+{
+ "actions": [],
+ "autoname": "format:DBATCH-{YYYY}{MM}-{###}",
+ "creation": "2026-03-31 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "batch_date",
+  "bank_account",
+  "status",
+  "section_cheques",
+  "cheques",
+  "section_totals",
+  "total_cheques",
+  "total_amount",
+  "section_docs",
+  "deposit_slip_pdf",
+  "notes"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "batch_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Batch Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Bank Account",
+   "options": "Bank Account",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nSubmitted to Bank\nPartly Cleared\nFully Cleared"
+  },
+  {
+   "fieldname": "section_cheques",
+   "fieldtype": "Section Break",
+   "label": "Cheques"
+  },
+  {
+   "fieldname": "cheques",
+   "fieldtype": "Table",
+   "label": "Cheques",
+   "options": "PDC Deposit Batch Cheque"
+  },
+  {
+   "fieldname": "section_totals",
+   "fieldtype": "Section Break",
+   "label": "Totals"
+  },
+  {
+   "fieldname": "total_cheques",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Total Cheques",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_docs",
+   "fieldtype": "Section Break",
+   "label": "Documents"
+  },
+  {
+   "fieldname": "deposit_slip_pdf",
+   "fieldtype": "Attach",
+   "label": "Deposit Slip PDF"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-03-31 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "PDC Deposit Batch",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accountant",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "batch_date",
+ "sort_order": "DESC",
+ "states": []
+}

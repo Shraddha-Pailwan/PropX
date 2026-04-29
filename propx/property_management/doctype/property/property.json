@@ -1,0 +1,308 @@
+{
+ "actions": [],
+ "autoname": "PROP-.####",
+ "creation": "2026-03-30 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "property_name",
+  "property_code",
+  "company",
+  "owner",
+  "property_category",
+  "property_type",
+  "column_break_1",
+  "address_line_1",
+  "address_line_2",
+  "city",
+  "emirate_region",
+  "country",
+  "google_maps_link",
+  "section_gcc",
+  "ejari_building_id",
+  "dewa_premise_number",
+  "column_break_gcc",
+  "sewa_account",
+  "omas_account",
+  "municipality_code",
+  "section_financial",
+  "cost_centre",
+  "currency",
+  "vat_registration",
+  "section_physical",
+  "total_floors",
+  "total_area_sqft",
+  "column_break_physical",
+  "year_built",
+  "commissioning_date",
+  "section_media",
+  "property_photos",
+  "property_documents",
+  "section_stats",
+  "total_units",
+  "occupied_units",
+  "occupancy_pct"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "fieldname": "property_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Property Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "property_code",
+   "fieldtype": "Data",
+   "label": "Property Code",
+   "unique": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "owner",
+   "fieldtype": "Link",
+   "label": "Owner / Investor",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "property_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Property Category",
+   "options": "Residential\nCommercial\nIndustrial\nMixed-Use\nShort-Term Rental",
+   "reqd": 1
+  },
+  {
+   "fieldname": "property_type",
+   "fieldtype": "Select",
+   "label": "Property Type",
+   "options": "Apartment Block\nVilla Complex\nOffice Tower\nRetail Centre\nWarehouse\nServiced Apartments\nMixed-Use Tower"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "address_line_1",
+   "fieldtype": "Data",
+   "label": "Address Line 1",
+   "reqd": 1
+  },
+  {
+   "fieldname": "address_line_2",
+   "fieldtype": "Data",
+   "label": "Address Line 2"
+  },
+  {
+   "fieldname": "city",
+   "fieldtype": "Data",
+   "label": "City",
+   "reqd": 1
+  },
+  {
+   "fieldname": "emirate_region",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Emirate / Region",
+   "options": "Dubai\nAbu Dhabi\nSharjah\nAjman\nRAK\nFujairah\nUAQ\nMuscat\nRiyadh\nJeddah\nNairobi\nOther"
+  },
+  {
+   "default": "United Arab Emirates",
+   "fieldname": "country",
+   "fieldtype": "Link",
+   "label": "Country",
+   "options": "Country"
+  },
+  {
+   "fieldname": "google_maps_link",
+   "fieldtype": "Data",
+   "label": "Google Maps Link"
+  },
+  {
+   "fieldname": "section_gcc",
+   "fieldtype": "Section Break",
+   "label": "GCC Compliance"
+  },
+  {
+   "fieldname": "ejari_building_id",
+   "fieldtype": "Data",
+   "label": "Ejari Building ID"
+  },
+  {
+   "fieldname": "dewa_premise_number",
+   "fieldtype": "Data",
+   "label": "DEWA Premise No."
+  },
+  {
+   "fieldname": "column_break_gcc",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sewa_account",
+   "fieldtype": "Data",
+   "label": "SEWA Account No."
+  },
+  {
+   "fieldname": "omas_account",
+   "fieldtype": "Data",
+   "label": "OMAS Account No."
+  },
+  {
+   "fieldname": "municipality_code",
+   "fieldtype": "Data",
+   "label": "Municipality Code"
+  },
+  {
+   "fieldname": "section_financial",
+   "fieldtype": "Section Break",
+   "label": "Financial"
+  },
+  {
+   "fieldname": "cost_centre",
+   "fieldtype": "Link",
+   "label": "Cost Centre",
+   "options": "Cost Center",
+   "reqd": 1
+  },
+  {
+   "default": "AED",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "fieldname": "vat_registration",
+   "fieldtype": "Data",
+   "label": "VAT / TRN Registration No."
+  },
+  {
+   "fieldname": "section_physical",
+   "fieldtype": "Section Break",
+   "label": "Physical Details"
+  },
+  {
+   "fieldname": "total_floors",
+   "fieldtype": "Int",
+   "label": "Total Floors"
+  },
+  {
+   "fieldname": "total_area_sqft",
+   "fieldtype": "Float",
+   "label": "Total Area (sqft)"
+  },
+  {
+   "fieldname": "column_break_physical",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "year_built",
+   "fieldtype": "Int",
+   "label": "Year Built"
+  },
+  {
+   "fieldname": "commissioning_date",
+   "fieldtype": "Date",
+   "label": "Commissioning Date"
+  },
+  {
+   "fieldname": "section_media",
+   "fieldtype": "Section Break",
+   "label": "Media"
+  },
+  {
+   "fieldname": "property_photos",
+   "fieldtype": "Table",
+   "label": "Property Photos",
+   "options": "Property Photo"
+  },
+  {
+   "fieldname": "property_documents",
+   "fieldtype": "Table",
+   "label": "Property Documents",
+   "options": "Property Document"
+  },
+  {
+   "fieldname": "section_stats",
+   "fieldtype": "Section Break",
+   "label": "Statistics"
+  },
+  {
+   "fieldname": "total_units",
+   "fieldtype": "Int",
+   "label": "Total Units",
+   "read_only": 1
+  },
+  {
+   "fieldname": "occupied_units",
+   "fieldtype": "Int",
+   "label": "Occupied Units",
+   "read_only": 1
+  },
+  {
+   "fieldname": "occupancy_pct",
+   "fieldtype": "Percent",
+   "label": "Occupancy %",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-03-30 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Property",
+ "naming_rule": "Naming Series",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Lease Manager",
+   "select": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accountant",
+   "select": 1
+  },
+  {
+   "if_owner": 1,
+   "read": 1,
+   "role": "Property Owner",
+   "select": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "property_name",
+ "track_changes": 1
+}

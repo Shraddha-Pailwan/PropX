@@ -1,0 +1,637 @@
+{
+ "actions": [],
+ "autoname": "format:LAS-{YYYY}-{#####}",
+ "creation": "2026-03-31 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_parties",
+  "tenant",
+  "tenant_name",
+  "tenant_type",
+  "company_name",
+  "trade_licence_no",
+  "trade_licence_expiry",
+  "section_property",
+  "company",
+  "property",
+  "unit",
+  "usage_type",
+  "section_lease_type",
+  "lease_category",
+  "lease_subtype",
+  "contract_language",
+  "section_term",
+  "start_date",
+  "end_date",
+  "lease_duration_months",
+  "notice_period_days",
+  "section_break_clause",
+  "has_break_clause",
+  "break_clause_date",
+  "break_penalty_months",
+  "bounce_penalty_amount",
+  "section_financial",
+  "annual_rent",
+  "monthly_rent",
+  "currency",
+  "is_vat_applicable",
+  "vat_rate",
+  "vat_amount_annual",
+  "total_with_vat",
+  "section_service_charge",
+  "service_charge_monthly",
+  "service_charge_basis",
+  "cam_reconciliation_date",
+  "section_percentage_rent",
+  "has_percentage_rent",
+  "percentage_rent_pct",
+  "percentage_rent_threshold",
+  "percentage_rent_basis",
+  "section_escalation",
+  "has_rent_escalation",
+  "escalation_type",
+  "escalation_pct",
+  "escalation_frequency_months",
+  "next_escalation_date",
+  "rera_current_rent",
+  "rera_allowed_increase_pct",
+  "escalation_schedule",
+  "section_security_deposit",
+  "security_deposit",
+  "deposit_cheque_no",
+  "deposit_status",
+  "deposit_refund_amount",
+  "section_pdc",
+  "number_of_cheques",
+  "pdc_schedule",
+  "section_gcc",
+  "ejari_contract_no",
+  "ejari_status",
+  "ejari_filing_date",
+  "rera_permit_no",
+  "tawtheeq_no",
+  "section_documents",
+  "signed_contract",
+  "signed_date",
+  "esign_status",
+  "esign_request_id",
+  "section_inspections",
+  "inspections",
+  "section_status",
+  "status",
+  "renewal_status",
+  "renewal_offered_rent",
+  "parent_lease",
+  "section_notes",
+  "special_conditions",
+  "internal_notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_parties",
+   "fieldtype": "Section Break",
+   "label": "Parties"
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tenant",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tenant_name",
+   "fieldtype": "Data",
+   "label": "Tenant Name",
+   "read_only": 1,
+   "fetch_from": "tenant.customer_name"
+  },
+  {
+   "fieldname": "tenant_type",
+   "fieldtype": "Select",
+   "label": "Tenant Type",
+   "options": "Individual\nCorporate",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.tenant_type=='Corporate'",
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company Name"
+  },
+  {
+   "depends_on": "eval:doc.tenant_type=='Corporate'",
+   "fieldname": "trade_licence_no",
+   "fieldtype": "Data",
+   "label": "Trade Licence No"
+  },
+  {
+   "depends_on": "eval:doc.tenant_type=='Corporate'",
+   "fieldname": "trade_licence_expiry",
+   "fieldtype": "Date",
+   "label": "Trade Licence Expiry"
+  },
+  {
+   "fieldname": "section_property",
+   "fieldtype": "Section Break",
+   "label": "Property"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 0,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Unit",
+   "options": "Property Unit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "usage_type",
+   "fieldtype": "Select",
+   "label": "Usage Type",
+   "options": "Residential\nCommercial\nIndustrial\nShort-Term Rental\nStorage\nParking\nCommon Area",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_lease_type",
+   "fieldtype": "Section Break",
+   "label": "Lease Type"
+  },
+  {
+   "fieldname": "lease_category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Lease Category",
+   "options": "Residential\nCommercial\nIndustrial\nShort-Term\nMonthly",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lease_subtype",
+   "fieldtype": "Select",
+   "label": "Lease Subtype",
+   "options": "\nStandard\nCorporate\nDiplomatic\nGovernment"
+  },
+  {
+   "default": "English",
+   "fieldname": "contract_language",
+   "fieldtype": "Select",
+   "label": "Contract Language",
+   "options": "English\nArabic\nBilingual"
+  },
+  {
+   "fieldname": "section_term",
+   "fieldtype": "Section Break",
+   "label": "Lease Term"
+  },
+  {
+   "fieldname": "start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Start Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lease_duration_months",
+   "fieldtype": "Int",
+   "label": "Duration (Months)",
+   "read_only": 1
+  },
+  {
+   "default": "90",
+   "fieldname": "notice_period_days",
+   "fieldtype": "Int",
+   "label": "Notice Period (Days)"
+  },
+  {
+   "fieldname": "section_break_clause",
+   "fieldtype": "Section Break",
+   "label": "Break Clause"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_break_clause",
+   "fieldtype": "Check",
+   "label": "Has Break Clause"
+  },
+  {
+   "depends_on": "eval:doc.has_break_clause==1",
+   "fieldname": "break_clause_date",
+   "fieldtype": "Date",
+   "label": "Break Clause Date"
+  },
+  {
+   "default": "2",
+   "fieldname": "break_penalty_months",
+   "fieldtype": "Int",
+   "label": "Break Penalty (Months Rent)"
+  },
+  {
+   "default": "0",
+   "fieldname": "bounce_penalty_amount",
+   "fieldtype": "Currency",
+   "label": "PDC Bounce Penalty Amount",
+   "description": "Fixed penalty charged when a cheque bounces; 0 = no penalty invoice"
+  },
+  {
+   "fieldname": "section_financial",
+   "fieldtype": "Section Break",
+   "label": "Financial"
+  },
+  {
+   "fieldname": "annual_rent",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Annual Rent",
+   "reqd": 1
+  },
+  {
+   "fieldname": "monthly_rent",
+   "fieldtype": "Currency",
+   "label": "Monthly Rent",
+   "read_only": 1
+  },
+  {
+   "default": "AED",
+   "fieldname": "currency",
+   "fieldtype": "Link",
+   "label": "Currency",
+   "options": "Currency"
+  },
+  {
+   "default": "0",
+   "fieldname": "is_vat_applicable",
+   "fieldtype": "Check",
+   "label": "VAT Applicable",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vat_rate",
+   "fieldtype": "Percent",
+   "label": "VAT Rate %",
+   "read_only": 1
+  },
+  {
+   "fieldname": "vat_amount_annual",
+   "fieldtype": "Currency",
+   "label": "VAT Amount (Annual)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_with_vat",
+   "fieldtype": "Currency",
+   "label": "Total with VAT",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_service_charge",
+   "fieldtype": "Section Break",
+   "label": "Service Charge"
+  },
+  {
+   "fieldname": "service_charge_monthly",
+   "fieldtype": "Currency",
+   "label": "Service Charge (Monthly)"
+  },
+  {
+   "default": "None",
+   "fieldname": "service_charge_basis",
+   "fieldtype": "Select",
+   "label": "Service Charge Basis",
+   "options": "Per Sqft\nFixed Amount\nNone"
+  },
+  {
+   "fieldname": "cam_reconciliation_date",
+   "fieldtype": "Date",
+   "label": "CAM Reconciliation Date"
+  },
+  {
+   "fieldname": "section_percentage_rent",
+   "fieldtype": "Section Break",
+   "label": "Percentage Rent (Retail)"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_percentage_rent",
+   "fieldtype": "Check",
+   "label": "Has Percentage Rent"
+  },
+  {
+   "depends_on": "eval:doc.has_percentage_rent==1",
+   "fieldname": "percentage_rent_pct",
+   "fieldtype": "Percent",
+   "label": "Percentage Rent %"
+  },
+  {
+   "depends_on": "eval:doc.has_percentage_rent==1",
+   "fieldname": "percentage_rent_threshold",
+   "fieldtype": "Currency",
+   "label": "Percentage Rent Threshold"
+  },
+  {
+   "depends_on": "eval:doc.has_percentage_rent==1",
+   "fieldname": "percentage_rent_basis",
+   "fieldtype": "Select",
+   "label": "Percentage Rent Basis",
+   "options": "\nGross Sales\nNet Sales"
+  },
+  {
+   "fieldname": "section_escalation",
+   "fieldtype": "Section Break",
+   "label": "Rent Escalation"
+  },
+  {
+   "default": "0",
+   "fieldname": "has_rent_escalation",
+   "fieldtype": "Check",
+   "label": "Has Rent Escalation"
+  },
+  {
+   "depends_on": "eval:doc.has_rent_escalation==1",
+   "fieldname": "escalation_type",
+   "fieldtype": "Select",
+   "label": "Escalation Type",
+   "options": "\nFixed %\nCPI Index\nRERA Index\nNegotiated"
+  },
+  {
+   "depends_on": "eval:doc.escalation_type=='Fixed %'",
+   "fieldname": "escalation_pct",
+   "fieldtype": "Percent",
+   "label": "Escalation %"
+  },
+  {
+   "default": "12",
+   "fieldname": "escalation_frequency_months",
+   "fieldtype": "Int",
+   "label": "Escalation Frequency (Months)"
+  },
+  {
+   "fieldname": "next_escalation_date",
+   "fieldtype": "Date",
+   "label": "Next Escalation Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "rera_current_rent",
+   "fieldtype": "Currency",
+   "label": "RERA Current Market Rent"
+  },
+  {
+   "fieldname": "rera_allowed_increase_pct",
+   "fieldtype": "Percent",
+   "label": "RERA Allowed Increase %"
+  },
+  {
+   "fieldname": "escalation_schedule",
+   "fieldtype": "Table",
+   "label": "Escalation Schedule",
+   "options": "Rent Escalation Schedule"
+  },
+  {
+   "fieldname": "section_security_deposit",
+   "fieldtype": "Section Break",
+   "label": "Security Deposit"
+  },
+  {
+   "fieldname": "security_deposit",
+   "fieldtype": "Currency",
+   "label": "Security Deposit"
+  },
+  {
+   "fieldname": "deposit_cheque_no",
+   "fieldtype": "Data",
+   "label": "Deposit Cheque No"
+  },
+  {
+   "default": "Pending",
+   "fieldname": "deposit_status",
+   "fieldtype": "Select",
+   "label": "Deposit Status",
+   "options": "Pending\nReceived\nPartly Received\nRefunded"
+  },
+  {
+   "fieldname": "deposit_refund_amount",
+   "fieldtype": "Currency",
+   "label": "Deposit Refund Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_pdc",
+   "fieldtype": "Section Break",
+   "label": "PDC Schedule"
+  },
+  {
+   "default": "4",
+   "fieldname": "number_of_cheques",
+   "fieldtype": "Int",
+   "label": "Number of Cheques",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pdc_schedule",
+   "fieldtype": "Table",
+   "label": "PDC Schedule",
+   "options": "PDC Cheque Row"
+  },
+  {
+   "fieldname": "section_gcc",
+   "fieldtype": "Section Break",
+   "label": "GCC Compliance"
+  },
+  {
+   "fieldname": "ejari_contract_no",
+   "fieldtype": "Data",
+   "label": "Ejari Contract No"
+  },
+  {
+   "default": "Not Filed",
+   "fieldname": "ejari_status",
+   "fieldtype": "Select",
+   "label": "Ejari Status",
+   "options": "Not Filed\nFiled\nRenewed\nCancelled"
+  },
+  {
+   "fieldname": "ejari_filing_date",
+   "fieldtype": "Date",
+   "label": "Ejari Filing Date"
+  },
+  {
+   "fieldname": "rera_permit_no",
+   "fieldtype": "Data",
+   "label": "RERA Permit No"
+  },
+  {
+   "fieldname": "tawtheeq_no",
+   "fieldtype": "Data",
+   "label": "Tawtheeq No (Abu Dhabi)"
+  },
+  {
+   "fieldname": "section_documents",
+   "fieldtype": "Section Break",
+   "label": "Documents & e-Signature"
+  },
+  {
+   "fieldname": "signed_contract",
+   "fieldtype": "Attach",
+   "label": "Signed Contract"
+  },
+  {
+   "fieldname": "signed_date",
+   "fieldtype": "Date",
+   "label": "Signed Date"
+  },
+  {
+   "default": "Not Sent",
+   "fieldname": "esign_status",
+   "fieldtype": "Select",
+   "label": "eSign Status",
+   "options": "Not Sent\nSent\nSigned\nDeclined"
+  },
+  {
+   "fieldname": "esign_request_id",
+   "fieldtype": "Data",
+   "label": "eSign Request ID",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_inspections",
+   "fieldtype": "Section Break",
+   "label": "Inspections"
+  },
+  {
+   "fieldname": "inspections",
+   "fieldtype": "Table",
+   "label": "Inspections",
+   "options": "Lease Inspection Link"
+  },
+  {
+   "fieldname": "section_status",
+   "fieldtype": "Section Break",
+   "label": "Status & Renewal"
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nPending Approval\nActive\nExpiring\nRenewed\nTerminated\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "renewal_status",
+   "fieldtype": "Select",
+   "label": "Renewal Status",
+   "options": "\nNot Initiated\nOffer Sent\nNegotiating\nAgreed\nDeclined"
+  },
+  {
+   "fieldname": "renewal_offered_rent",
+   "fieldtype": "Currency",
+   "label": "Renewal Offered Rent"
+  },
+  {
+   "fieldname": "parent_lease",
+   "fieldtype": "Link",
+   "label": "Parent Lease",
+   "options": "Lease"
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "special_conditions",
+   "fieldtype": "Text Editor",
+   "label": "Special Conditions"
+  },
+  {
+   "fieldname": "internal_notes",
+   "fieldtype": "Text Editor",
+   "label": "Internal Notes"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-03-31 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Lease",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Lease Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "select": 1,
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accountant",
+   "select": 1
+  },
+  {
+   "match_field": "tenant",
+   "read": 1,
+   "role": "Tenant",
+   "select": 1
+  }
+ ],
+ "sort_field": "end_date",
+ "sort_order": "ASC",
+ "states": [],
+ "title_field": "tenant_name",
+ "track_changes": 1
+}

@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "creation": "2026-03-31 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "area",
+  "item_description",
+  "condition_move_in",
+  "condition_move_out",
+  "change_noted",
+  "before_photo",
+  "after_photo",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "area",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Area",
+   "reqd": 1
+  },
+  {
+   "fieldname": "item_description",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Item Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "condition_move_in",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Condition (Move-In)",
+   "options": "Excellent\nGood\nFair\nPoor\nN/A"
+  },
+  {
+   "fieldname": "condition_move_out",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Condition (Move-Out)",
+   "options": "Excellent\nGood\nFair\nPoor\nN/A"
+  },
+  {
+   "default": "0",
+   "fieldname": "change_noted",
+   "fieldtype": "Check",
+   "label": "Change Noted"
+  },
+  {
+   "fieldname": "before_photo",
+   "fieldtype": "Attach Image",
+   "label": "Before Photo"
+  },
+  {
+   "fieldname": "after_photo",
+   "fieldtype": "Attach Image",
+   "label": "After Photo"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-03-31 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Inspection Item",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

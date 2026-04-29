@@ -1,0 +1,97 @@
+{
+ "actions": [],
+ "autoname": "format:{property}-F{floor_number}",
+ "creation": "2026-03-30 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "property",
+  "floor_number",
+  "floor_label",
+  "status",
+  "column_break_1",
+  "floor_area_sqft",
+  "common_area_sqft",
+  "floor_plan"
+ ],
+ "fields": [
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "floor_number",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Floor Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "floor_label",
+   "fieldtype": "Data",
+   "label": "Floor Label",
+   "description": "e.g. Ground, Mezzanine, Level 1"
+  },
+  {
+   "default": "Active",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Active\nUnder Renovation\nDecommissioned"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "floor_area_sqft",
+   "fieldtype": "Float",
+   "label": "Floor Area (sqft)"
+  },
+  {
+   "fieldname": "common_area_sqft",
+   "fieldtype": "Float",
+   "label": "Common Area (sqft)"
+  },
+  {
+   "fieldname": "floor_plan",
+   "fieldtype": "Attach Image",
+   "label": "Floor Plan"
+  }
+ ],
+ "links": [],
+ "modified": "2026-03-30 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Property Floor",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Lease Manager",
+   "select": 1
+  }
+ ],
+ "sort_field": "floor_number",
+ "sort_order": "ASC",
+ "states": []
+}

@@ -1,0 +1,85 @@
+[
+ {
+  "doctype": "Workflow",
+  "name": "Lease Approval Workflow",
+  "document_type": "Lease",
+  "is_active": 1,
+  "workflow_state_field": "status",
+  "send_email_alert": 0,
+  "states": [
+   {
+    "state": "Draft",
+    "doc_status": "0",
+    "allow_edit": "Lease Manager",
+    "is_optional_state": 0
+   },
+   {
+    "state": "Pending Approval",
+    "doc_status": "0",
+    "allow_edit": "Property Manager",
+    "is_optional_state": 0
+   },
+   {
+    "state": "Active",
+    "doc_status": "1",
+    "allow_edit": "Property Manager",
+    "is_optional_state": 0
+   },
+   {
+    "state": "Expiring",
+    "doc_status": "1",
+    "allow_edit": "Property Manager",
+    "is_optional_state": 0
+   },
+   {
+    "state": "Terminated",
+    "doc_status": "2",
+    "allow_edit": "System Manager",
+    "is_optional_state": 0
+   },
+   {
+    "state": "Cancelled",
+    "doc_status": "2",
+    "allow_edit": "System Manager",
+    "is_optional_state": 0
+   }
+  ],
+  "transitions": [
+   {
+    "state": "Draft",
+    "action": "Submit for Approval",
+    "next_state": "Pending Approval",
+    "allowed": "Lease Manager",
+    "allow_self_approval": 0
+   },
+   {
+    "state": "Pending Approval",
+    "action": "Approve",
+    "next_state": "Active",
+    "allowed": "Property Manager",
+    "allow_self_approval": 0
+   },
+   {
+    "state": "Pending Approval",
+    "action": "Return",
+    "next_state": "Draft",
+    "allowed": "Property Manager",
+    "allow_self_approval": 0
+   },
+   {
+    "state": "Active",
+    "action": "Terminate",
+    "next_state": "Terminated",
+    "allowed": "Property Manager",
+    "allow_self_approval": 0
+   },
+   {
+    "state": "Draft",
+    "action": "Cancel",
+    "next_state": "Cancelled",
+    "allowed": "Lease Manager",
+    "allow_self_approval": 0
+   }
+  ]
+ }
+]

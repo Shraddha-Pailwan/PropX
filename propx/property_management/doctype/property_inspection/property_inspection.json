@@ -1,0 +1,254 @@
+{
+ "actions": [],
+ "autoname": "format:INSP-{YYYY}-{#####}",
+ "creation": "2026-03-31 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_identity",
+  "inspection_type",
+  "lease",
+  "unit",
+  "property",
+  "tenant",
+  "inspection_date",
+  "inspector",
+  "status",
+  "section_items",
+  "inspection_items",
+  "section_score",
+  "overall_condition",
+  "overall_score",
+  "section_deposit",
+  "deposit_held",
+  "deductions",
+  "total_deductions",
+  "refund_amount",
+  "refund_approved",
+  "refund_journal_entry",
+  "section_signoff",
+  "tenant_agreed",
+  "tenant_signature",
+  "manager_signature",
+  "notes",
+  "inspection_report"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_identity",
+   "fieldtype": "Section Break",
+   "label": "Identity"
+  },
+  {
+   "fieldname": "inspection_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Inspection Type",
+   "options": "Move-In\nMove-Out\nPeriodic\nPre-Listing\nHandover",
+   "reqd": 1
+  },
+  {
+   "fieldname": "lease",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Lease",
+   "options": "Lease"
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Unit",
+   "options": "Property Unit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "label": "Property",
+   "options": "Property",
+   "read_only": 1
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tenant",
+   "options": "Customer"
+  },
+  {
+   "default": "Today",
+   "fieldname": "inspection_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Inspection Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "inspector",
+   "fieldtype": "Link",
+   "label": "Inspector",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "default": "Draft",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nIn Progress\nCompleted\nDisputed\nClosed",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_items",
+   "fieldtype": "Section Break",
+   "label": "Condition Items"
+  },
+  {
+   "fieldname": "inspection_items",
+   "fieldtype": "Table",
+   "label": "Inspection Items",
+   "options": "Inspection Item"
+  },
+  {
+   "fieldname": "section_score",
+   "fieldtype": "Section Break",
+   "label": "Overall Score"
+  },
+  {
+   "fieldname": "overall_condition",
+   "fieldtype": "Select",
+   "label": "Overall Condition",
+   "options": "Excellent\nGood\nFair\nPoor\nUnacceptable",
+   "read_only": 1
+  },
+  {
+   "fieldname": "overall_score",
+   "fieldtype": "Float",
+   "label": "Overall Score (0-100)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_deposit",
+   "fieldtype": "Section Break",
+   "label": "Deposit Settlement (Move-Out)"
+  },
+  {
+   "fieldname": "deposit_held",
+   "fieldtype": "Currency",
+   "label": "Deposit Held",
+   "read_only": 1
+  },
+  {
+   "fieldname": "deductions",
+   "fieldtype": "Table",
+   "label": "Deductions",
+   "options": "Inspection Deduction"
+  },
+  {
+   "fieldname": "total_deductions",
+   "fieldtype": "Currency",
+   "label": "Total Deductions",
+   "read_only": 1
+  },
+  {
+   "fieldname": "refund_amount",
+   "fieldtype": "Currency",
+   "label": "Refund Amount",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "refund_approved",
+   "fieldtype": "Check",
+   "label": "Refund Approved"
+  },
+  {
+   "fieldname": "refund_journal_entry",
+   "fieldtype": "Link",
+   "label": "Refund Journal Entry",
+   "options": "Journal Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_signoff",
+   "fieldtype": "Section Break",
+   "label": "Sign-Off"
+  },
+  {
+   "default": "0",
+   "fieldname": "tenant_agreed",
+   "fieldtype": "Check",
+   "label": "Tenant Agreed"
+  },
+  {
+   "fieldname": "tenant_signature",
+   "fieldtype": "Attach",
+   "label": "Tenant Signature"
+  },
+  {
+   "fieldname": "manager_signature",
+   "fieldtype": "Attach",
+   "label": "Manager Signature"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "inspection_report",
+   "fieldtype": "Attach",
+   "label": "Inspection Report (PDF)",
+   "read_only": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-03-31 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Property Inspection",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Lease Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Maintenance Technician",
+   "write": 1
+  },
+  {
+   "match_field": "tenant",
+   "read": 1,
+   "role": "Tenant"
+  }
+ ],
+ "sort_field": "inspection_date",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

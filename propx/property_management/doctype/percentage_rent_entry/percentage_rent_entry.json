@@ -1,0 +1,183 @@
+{
+ "actions": [],
+ "autoname": "format:PRE-{YYYY}-{MM}-{#####}",
+ "creation": "2026-03-31 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_links",
+  "lease",
+  "tenant",
+  "property",
+  "unit",
+  "section_period",
+  "period_from",
+  "period_to",
+  "section_sales",
+  "gross_sales",
+  "threshold",
+  "overage_amount",
+  "percentage_rate",
+  "percentage_rent_due",
+  "section_invoice",
+  "invoice",
+  "status"
+ ],
+ "fields": [
+  {
+   "fieldname": "section_links",
+   "fieldtype": "Section Break",
+   "label": "Lease Details"
+  },
+  {
+   "fieldname": "lease",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Lease",
+   "options": "Lease",
+   "reqd": 1
+  },
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tenant",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "label": "Property",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Unit",
+   "options": "Property Unit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_period",
+   "fieldtype": "Section Break",
+   "label": "Period"
+  },
+  {
+   "fieldname": "period_from",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Period From",
+   "reqd": 1
+  },
+  {
+   "fieldname": "period_to",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Period To",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_sales",
+   "fieldtype": "Section Break",
+   "label": "Sales & Rent Calculation"
+  },
+  {
+   "fieldname": "gross_sales",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Gross Sales",
+   "reqd": 1
+  },
+  {
+   "fieldname": "threshold",
+   "fieldtype": "Currency",
+   "label": "Threshold",
+   "read_only": 1
+  },
+  {
+   "fieldname": "overage_amount",
+   "fieldtype": "Currency",
+   "label": "Overage Amount",
+   "read_only": 1,
+   "description": "max(0, gross_sales - threshold)"
+  },
+  {
+   "fieldname": "percentage_rate",
+   "fieldtype": "Percent",
+   "label": "Percentage Rate",
+   "read_only": 1
+  },
+  {
+   "fieldname": "percentage_rent_due",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Percentage Rent Due",
+   "read_only": 1,
+   "description": "overage × rate"
+  },
+  {
+   "fieldname": "section_invoice",
+   "fieldtype": "Section Break",
+   "label": "Invoice"
+  },
+  {
+   "fieldname": "invoice",
+   "fieldtype": "Link",
+   "label": "Sales Invoice",
+   "options": "Sales Invoice",
+   "read_only": 1
+  },
+  {
+   "default": "Pending",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Pending\nInvoiced"
+  }
+ ],
+ "links": [],
+ "modified": "2026-03-31 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Percentage Rent Entry",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "select": 1,
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Lease Manager",
+   "select": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "report": 1,
+   "role": "Accountant",
+   "select": 1
+  }
+ ],
+ "sort_field": "period_from",
+ "sort_order": "DESC",
+ "states": []
+}

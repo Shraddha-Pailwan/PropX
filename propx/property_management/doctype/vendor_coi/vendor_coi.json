@@ -1,133 +1,128 @@
 {
-  "actions": [],
-  "autoname": "format:COI-{####}",
-  "creation": "2026-03-31 00:00:00.000000",
-  "doctype": "DocType",
-  "document_type": "Document",
-  "editable_grid": 0,
-  "engine": "InnoDB",
-  "field_order": [
-    "vendor",
-    "insurance_company",
-    "policy_number",
-    "coverage_type",
-    "coverage_amount",
-    "col_break_1",
-    "valid_from",
-    "valid_to",
-    "status",
-    "coi_document",
-    "property_scope"
-  ],
-  "fields": [
-    {
-      "fieldname": "vendor",
-      "fieldtype": "Link",
-      "in_list_view": 1,
-      "label": "Vendor",
-      "options": "Supplier",
-      "reqd": 1
-    },
-    {
-      "fieldname": "insurance_company",
-      "fieldtype": "Data",
-      "in_list_view": 1,
-      "label": "Insurance Company",
-      "reqd": 1
-    },
-    {
-      "fieldname": "policy_number",
-      "fieldtype": "Data",
-      "in_list_view": 1,
-      "label": "Policy Number",
-      "reqd": 1
-    },
-    {
-      "fieldname": "coverage_type",
-      "fieldtype": "Select",
-      "label": "Coverage Type",
-      "options": "Public Liability\nWorkers Comp\nProperty Damage\nAll Risks"
-    },
-    {
-      "fieldname": "coverage_amount",
-      "fieldtype": "Currency",
-      "label": "Coverage Amount"
-    },
-    {
-      "fieldname": "col_break_1",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "valid_from",
-      "fieldtype": "Date",
-      "label": "Valid From",
-      "reqd": 1
-    },
-    {
-      "fieldname": "valid_to",
-      "fieldtype": "Date",
-      "in_list_view": 1,
-      "label": "Valid To",
-      "reqd": 1
-    },
-    {
-      "default": "Valid",
-      "fieldname": "status",
-      "fieldtype": "Select",
-      "in_list_view": 1,
-      "label": "Status",
-      "options": "Valid\nExpiring Soon\nExpired",
-      "read_only": 1
-    },
-    {
-      "fieldname": "coi_document",
-      "fieldtype": "Attach",
-      "label": "COI Document",
-      "reqd": 1
-    },
-    {
-      "fieldname": "property_scope",
-      "fieldtype": "Table",
-      "label": "Properties Covered",
-      "options": "COI Property Scope"
-    }
-  ],
-  "index_web_pages_for_search": 0,
-  "links": [],
-  "modified": "2026-03-31 00:00:00.000000",
-  "modified_by": "Administrator",
-  "module": "Property Management",
-  "name": "Vendor COI",
-  "naming_rule": "Expression (old style)",
-  "owner": "Administrator",
-  "permissions": [
-    {
-      "create": 1,
-      "delete": 1,
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "PropX Admin",
-      "share": 1,
-      "write": 1
-    },
-    {
-      "create": 1,
-      "delete": 0,
-      "email": 0,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "Property Manager",
-      "share": 0,
-      "write": 1
-    }
-  ],
-  "sort_field": "valid_to",
-  "sort_order": "ASC",
-  "title_field": "vendor",
-  "track_changes": 0
+ "actions": [],
+ "autoname": "format:COI-{####}",
+ "creation": "2026-03-31 00:00:00",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "vendor",
+  "insurance_company",
+  "policy_number",
+  "coverage_type",
+  "coverage_amount",
+  "col_break_1",
+  "valid_from",
+  "valid_to",
+  "status",
+  "coi_document",
+  "property_scope"
+ ],
+ "fields": [
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vendor",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "insurance_company",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Insurance Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "policy_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Policy Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "coverage_type",
+   "fieldtype": "Select",
+   "label": "Coverage Type",
+   "options": "Public Liability\nWorkers Comp\nProperty Damage\nAll Risks"
+  },
+  {
+   "fieldname": "coverage_amount",
+   "fieldtype": "Currency",
+   "label": "Coverage Amount"
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "valid_from",
+   "fieldtype": "Date",
+   "label": "Valid From",
+   "reqd": 1
+  },
+  {
+   "fieldname": "valid_to",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Valid To",
+   "reqd": 1
+  },
+  {
+   "default": "Valid",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Valid\nExpiring Soon\nExpired",
+   "read_only": 1
+  },
+  {
+   "fieldname": "coi_document",
+   "fieldtype": "Attach",
+   "label": "COI Document"
+  },
+  {
+   "fieldname": "property_scope",
+   "fieldtype": "Table",
+   "label": "Properties Covered",
+   "options": "COI Property Scope"
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-05 11:37:42.483397",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Vendor COI",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "PropX Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "valid_to",
+ "sort_order": "ASC",
+ "states": [],
+ "title_field": "vendor"
 }

@@ -1,377 +1,362 @@
 {
-  "actions": [],
-  "autoname": "format:WO-{YYYY}-{#####}",
-  "creation": "2026-03-31 00:00:00.000000",
-  "doctype": "DocType",
-  "document_type": "Document",
-  "editable_grid": 0,
-  "engine": "InnoDB",
-  "field_order": [
-    "subject",
-    "property",
-    "unit",
-    "location_detail",
-    "category_section",
-    "category",
-    "priority",
-    "is_ppm",
-    "ppm_schedule",
-    "ticket_status",
-    "description_section",
-    "description",
-    "reported_by_tenant",
-    "tenant_reference",
-    "assignment_section",
-    "assigned_technician",
-    "vendor",
-    "vendor_reference",
-    "vendor_coi_valid",
-    "sla_section",
-    "sla_hours",
-    "sla_deadline",
-    "sla_status",
-    "breached_at",
-    "cost_section",
-    "estimated_cost",
-    "actual_cost",
-    "cost_approval_required",
-    "cost_approved",
-    "purchase_order",
-    "photos_section",
-    "before_photos",
-    "after_photos",
-    "resolution_section",
-    "resolution_notes",
-    "tenant_satisfaction",
-    "tenant_notified",
-    "timestamps_section",
-    "opened_at",
-    "assigned_at",
-    "completed_at",
-    "resolution_hours"
-  ],
-  "fields": [
-    {
-      "bold": 1,
-      "fieldname": "subject",
-      "fieldtype": "Data",
-      "in_list_view": 1,
-      "label": "Subject",
-      "reqd": 1
-    },
-    {
-      "fieldname": "property",
-      "fieldtype": "Link",
-      "in_list_view": 1,
-      "label": "Property",
-      "options": "Property",
-      "reqd": 1
-    },
-    {
-      "fieldname": "unit",
-      "fieldtype": "Link",
-      "label": "Property Unit",
-      "options": "Property Unit"
-    },
-    {
-      "fieldname": "location_detail",
-      "fieldtype": "Data",
-      "label": "Location Detail",
-      "description": "e.g. Kitchen, Level 3, Lobby"
-    },
-    {
-      "fieldname": "category_section",
-      "fieldtype": "Section Break",
-      "label": "Category & Priority"
-    },
-    {
-      "fieldname": "category",
-      "fieldtype": "Select",
-      "in_list_view": 1,
-      "label": "Category",
-      "options": "Plumbing\nElectrical\nHVAC\nCivil\nMechanical\nSafety\nCleaning\nPest Control\nPainting\nLifts\nOther",
-      "reqd": 1
-    },
-    {
-      "default": "Medium",
-      "fieldname": "priority",
-      "fieldtype": "Select",
-      "in_list_view": 1,
-      "label": "Priority",
-      "options": "Low\nMedium\nHigh\nEmergency",
-      "reqd": 1
-    },
-    {
-      "default": "0",
-      "fieldname": "is_ppm",
-      "fieldtype": "Check",
-      "label": "Preventive Maintenance"
-    },
-    {
-      "fieldname": "ppm_schedule",
-      "fieldtype": "Link",
-      "label": "PPM Schedule",
-      "options": "PPM Schedule",
-      "depends_on": "eval:doc.is_ppm==1"
-    },
-    {
-      "default": "New",
-      "fieldname": "ticket_status",
-      "fieldtype": "Select",
-      "in_list_view": 1,
-      "label": "Status",
-      "options": "New\nAssigned\nIn Progress\nPending Parts\nPending Approval\nCompleted\nClosed\nCancelled",
-      "reqd": 1
-    },
-    {
-      "fieldname": "description_section",
-      "fieldtype": "Section Break",
-      "label": "Description"
-    },
-    {
-      "fieldname": "description",
-      "fieldtype": "Text Editor",
-      "label": "Description"
-    },
-    {
-      "default": "0",
-      "fieldname": "reported_by_tenant",
-      "fieldtype": "Check",
-      "label": "Reported by Tenant"
-    },
-    {
-      "fieldname": "tenant_reference",
-      "fieldtype": "Link",
-      "label": "Tenant",
-      "options": "Customer",
-      "depends_on": "eval:doc.reported_by_tenant==1"
-    },
-    {
-      "fieldname": "assignment_section",
-      "fieldtype": "Section Break",
-      "label": "Assignment"
-    },
-    {
-      "fieldname": "assigned_technician",
-      "fieldtype": "Link",
-      "label": "Assigned Technician",
-      "options": "Employee"
-    },
-    {
-      "fieldname": "vendor",
-      "fieldtype": "Link",
-      "label": "Vendor",
-      "options": "Supplier"
-    },
-    {
-      "fieldname": "vendor_reference",
-      "fieldtype": "Data",
-      "label": "Vendor Work Order Ref"
-    },
-    {
-      "default": "0",
-      "fieldname": "vendor_coi_valid",
-      "fieldtype": "Check",
-      "label": "Vendor COI Valid",
-      "read_only": 1
-    },
-    {
-      "fieldname": "sla_section",
-      "fieldtype": "Section Break",
-      "label": "SLA"
-    },
-    {
-      "fieldname": "sla_hours",
-      "fieldtype": "Int",
-      "label": "SLA Hours",
-      "read_only": 1
-    },
-    {
-      "fieldname": "sla_deadline",
-      "fieldtype": "Datetime",
-      "label": "SLA Deadline",
-      "read_only": 1
-    },
-    {
-      "fieldname": "sla_status",
-      "fieldtype": "Select",
-      "in_list_view": 1,
-      "label": "SLA Status",
-      "options": "On Time\nAt Risk\nBreached",
-      "read_only": 1
-    },
-    {
-      "fieldname": "breached_at",
-      "fieldtype": "Datetime",
-      "label": "Breached At",
-      "read_only": 1
-    },
-    {
-      "fieldname": "cost_section",
-      "fieldtype": "Section Break",
-      "label": "Cost"
-    },
-    {
-      "fieldname": "estimated_cost",
-      "fieldtype": "Currency",
-      "label": "Estimated Cost"
-    },
-    {
-      "fieldname": "actual_cost",
-      "fieldtype": "Currency",
-      "label": "Actual Cost"
-    },
-    {
-      "default": "0",
-      "fieldname": "cost_approval_required",
-      "fieldtype": "Check",
-      "label": "Approval Required",
-      "read_only": 1
-    },
-    {
-      "default": "0",
-      "fieldname": "cost_approved",
-      "fieldtype": "Check",
-      "label": "Cost Approved",
-      "depends_on": "eval:doc.cost_approval_required==1"
-    },
-    {
-      "fieldname": "purchase_order",
-      "fieldtype": "Link",
-      "label": "Purchase Order",
-      "options": "Purchase Order",
-      "read_only": 1
-    },
-    {
-      "fieldname": "photos_section",
-      "fieldtype": "Section Break",
-      "label": "Photos"
-    },
-    {
-      "fieldname": "before_photos",
-      "fieldtype": "Table",
-      "label": "Before Photos",
-      "options": "Maintenance Photo"
-    },
-    {
-      "fieldname": "after_photos",
-      "fieldtype": "Table",
-      "label": "After Photos",
-      "options": "Maintenance Photo"
-    },
-    {
-      "fieldname": "resolution_section",
-      "fieldtype": "Section Break",
-      "label": "Resolution"
-    },
-    {
-      "fieldname": "resolution_notes",
-      "fieldtype": "Text Editor",
-      "label": "Resolution Notes"
-    },
-    {
-      "fieldname": "tenant_satisfaction",
-      "fieldtype": "Select",
-      "label": "Tenant Satisfaction",
-      "options": "\n1-Very Unsatisfied\n2-Unsatisfied\n3-Neutral\n4-Satisfied\n5-Very Satisfied"
-    },
-    {
-      "default": "0",
-      "fieldname": "tenant_notified",
-      "fieldtype": "Check",
-      "label": "Tenant Notified",
-      "read_only": 1
-    },
-    {
-      "fieldname": "timestamps_section",
-      "fieldtype": "Section Break",
-      "label": "Timestamps"
-    },
-    {
-      "fieldname": "opened_at",
-      "fieldtype": "Datetime",
-      "label": "Opened At",
-      "read_only": 1
-    },
-    {
-      "fieldname": "assigned_at",
-      "fieldtype": "Datetime",
-      "label": "Assigned At",
-      "read_only": 1
-    },
-    {
-      "fieldname": "completed_at",
-      "fieldtype": "Datetime",
-      "label": "Completed At",
-      "read_only": 1
-    },
-    {
-      "fieldname": "resolution_hours",
-      "fieldtype": "Float",
-      "label": "Resolution Hours",
-      "read_only": 1
-    }
-  ],
-  "index_web_pages_for_search": 0,
-  "links": [],
-  "modified": "2026-03-31 00:00:00.000000",
-  "modified_by": "Administrator",
-  "module": "Property Management",
-  "name": "Maintenance Job Card",
-  "naming_rule": "Expression (old style)",
-  "owner": "Administrator",
-  "permissions": [
-    {
-      "create": 1,
-      "delete": 1,
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "PropX Admin",
-      "share": 1,
-      "write": 1
-    },
-    {
-      "create": 1,
-      "delete": 0,
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "Property Manager",
-      "share": 0,
-      "write": 1
-    },
-    {
-      "create": 0,
-      "delete": 0,
-      "email": 0,
-      "export": 0,
-      "print": 1,
-      "read": 1,
-      "report": 0,
-      "role": "Maintenance Technician",
-      "share": 0,
-      "write": 1
-    },
-    {
-      "create": 1,
-      "delete": 0,
-      "email": 0,
-      "export": 0,
-      "print": 0,
-      "read": 1,
-      "report": 0,
-      "role": "Tenant",
-      "share": 0,
-      "write": 0
-    }
-  ],
-  "sort_field": "modified",
-  "sort_order": "DESC",
-  "title_field": "subject",
-  "track_changes": 1
+ "actions": [],
+ "autoname": "format:WO-{YYYY}-{#####}",
+ "creation": "2026-03-31 00:00:00",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "subject",
+  "property",
+  "unit",
+  "location_detail",
+  "category_section",
+  "category",
+  "priority",
+  "is_ppm",
+  "ppm_schedule",
+  "ticket_status",
+  "description_section",
+  "description",
+  "reported_by_tenant",
+  "tenant_reference",
+  "assignment_section",
+  "assigned_technician",
+  "vendor",
+  "vendor_reference",
+  "vendor_coi_valid",
+  "sla_section",
+  "sla_hours",
+  "sla_deadline",
+  "sla_status",
+  "breached_at",
+  "cost_section",
+  "estimated_cost",
+  "actual_cost",
+  "cost_approval_required",
+  "cost_approved",
+  "purchase_order",
+  "photos_section",
+  "before_photos",
+  "after_photos",
+  "resolution_section",
+  "resolution_notes",
+  "tenant_satisfaction",
+  "tenant_notified",
+  "timestamps_section",
+  "opened_at",
+  "assigned_at",
+  "completed_at",
+  "resolution_hours"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "fieldname": "subject",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Subject",
+   "reqd": 1
+  },
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Property Unit",
+   "options": "Property Unit"
+  },
+  {
+   "description": "e.g. Kitchen, Level 3, Lobby",
+   "fieldname": "location_detail",
+   "fieldtype": "Data",
+   "label": "Location Detail"
+  },
+  {
+   "fieldname": "category_section",
+   "fieldtype": "Section Break",
+   "label": "Category & Priority"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Category",
+   "options": "Plumbing\nElectrical\nHVAC\nCivil\nMechanical\nSafety\nCleaning\nPest Control\nPainting\nLifts\nOther",
+   "reqd": 1
+  },
+  {
+   "default": "Medium",
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Priority",
+   "options": "Low\nMedium\nHigh\nEmergency",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "is_ppm",
+   "fieldtype": "Check",
+   "label": "Preventive Maintenance"
+  },
+  {
+   "depends_on": "eval:doc.is_ppm==1",
+   "fieldname": "ppm_schedule",
+   "fieldtype": "Link",
+   "label": "PPM Schedule",
+   "options": "PPM Schedule"
+  },
+  {
+   "default": "New",
+   "fieldname": "ticket_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "New\nAssigned\nIn Progress\nPending Parts\nPending Approval\nCompleted\nClosed\nCancelled",
+   "reqd": 1
+  },
+  {
+   "fieldname": "description_section",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "default": "0",
+   "fieldname": "reported_by_tenant",
+   "fieldtype": "Check",
+   "label": "Reported by Tenant"
+  },
+  {
+   "depends_on": "eval:doc.reported_by_tenant==1",
+   "fieldname": "tenant_reference",
+   "fieldtype": "Link",
+   "label": "Tenant",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "assignment_section",
+   "fieldtype": "Section Break",
+   "label": "Assignment"
+  },
+  {
+   "fieldname": "assigned_technician",
+   "fieldtype": "Link",
+   "label": "Assigned Technician",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "label": "Vendor",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "vendor_reference",
+   "fieldtype": "Data",
+   "label": "Vendor Work Order Ref"
+  },
+  {
+   "default": "0",
+   "fieldname": "vendor_coi_valid",
+   "fieldtype": "Check",
+   "label": "Vendor COI Valid",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sla_section",
+   "fieldtype": "Section Break",
+   "label": "SLA"
+  },
+  {
+   "fieldname": "sla_hours",
+   "fieldtype": "Int",
+   "label": "SLA Hours",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sla_deadline",
+   "fieldtype": "Datetime",
+   "label": "SLA Deadline",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sla_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "SLA Status",
+   "options": "On Time\nAt Risk\nBreached",
+   "read_only": 1
+  },
+  {
+   "fieldname": "breached_at",
+   "fieldtype": "Datetime",
+   "label": "Breached At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cost_section",
+   "fieldtype": "Section Break",
+   "label": "Cost"
+  },
+  {
+   "fieldname": "estimated_cost",
+   "fieldtype": "Currency",
+   "label": "Estimated Cost"
+  },
+  {
+   "fieldname": "actual_cost",
+   "fieldtype": "Currency",
+   "label": "Actual Cost"
+  },
+  {
+   "default": "0",
+   "fieldname": "cost_approval_required",
+   "fieldtype": "Check",
+   "label": "Approval Required",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.cost_approval_required==1",
+   "fieldname": "cost_approved",
+   "fieldtype": "Check",
+   "label": "Cost Approved"
+  },
+  {
+   "fieldname": "purchase_order",
+   "fieldtype": "Link",
+   "label": "Purchase Order",
+   "options": "Purchase Order",
+   "read_only": 1
+  },
+  {
+   "fieldname": "photos_section",
+   "fieldtype": "Section Break",
+   "label": "Photos"
+  },
+  {
+   "fieldname": "before_photos",
+   "fieldtype": "Table",
+   "label": "Before Photos",
+   "options": "Maintenance Photo"
+  },
+  {
+   "fieldname": "after_photos",
+   "fieldtype": "Table",
+   "label": "After Photos",
+   "options": "Maintenance Photo"
+  },
+  {
+   "fieldname": "resolution_section",
+   "fieldtype": "Section Break",
+   "label": "Resolution"
+  },
+  {
+   "fieldname": "resolution_notes",
+   "fieldtype": "Text Editor",
+   "label": "Resolution Notes"
+  },
+  {
+   "fieldname": "tenant_satisfaction",
+   "fieldtype": "Select",
+   "label": "Tenant Satisfaction",
+   "options": "\n1-Very Unsatisfied\n2-Unsatisfied\n3-Neutral\n4-Satisfied\n5-Very Satisfied"
+  },
+  {
+   "default": "0",
+   "fieldname": "tenant_notified",
+   "fieldtype": "Check",
+   "label": "Tenant Notified",
+   "read_only": 1
+  },
+  {
+   "fieldname": "timestamps_section",
+   "fieldtype": "Section Break",
+   "label": "Timestamps"
+  },
+  {
+   "fieldname": "opened_at",
+   "fieldtype": "Datetime",
+   "label": "Opened At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "assigned_at",
+   "fieldtype": "Datetime",
+   "label": "Assigned At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "completed_at",
+   "fieldtype": "Datetime",
+   "label": "Completed At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "resolution_hours",
+   "fieldtype": "Float",
+   "label": "Resolution Hours",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-05 11:31:38.739821",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Maintenance Job Card",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "PropX Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "write": 1
+  },
+  {
+   "print": 1,
+   "read": 1,
+   "role": "Maintenance Technician",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Tenant"
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "subject",
+ "track_changes": 1
 }

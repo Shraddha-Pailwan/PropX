@@ -1,0 +1,181 @@
+{
+ "actions": [],
+ "autoname": "format:MRD-{YYYY}{MM}-{####}",
+ "creation": "2026-04-29 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "meter",
+  "reading_date",
+  "reading_type",
+  "col_break_1",
+  "property",
+  "unit",
+  "section_readings",
+  "previous_reading",
+  "current_reading",
+  "consumption",
+  "unit_of_measure",
+  "col_break_2",
+  "amount_due",
+  "invoice",
+  "section_evidence",
+  "reading_image",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "meter",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Utility Meter",
+   "options": "Utility Meter",
+   "reqd": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "reading_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Reading Date",
+   "reqd": 1
+  },
+  {
+   "default": "Manual",
+   "fieldname": "reading_type",
+   "fieldtype": "Select",
+   "label": "Reading Type",
+   "options": "Manual\nIoT\nEstimated"
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fetch_from": "meter.property",
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "label": "Property",
+   "options": "Property",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "meter.unit",
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Property Unit",
+   "options": "Property Unit",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_readings",
+   "fieldtype": "Section Break",
+   "label": "Readings"
+  },
+  {
+   "fieldname": "previous_reading",
+   "fieldtype": "Float",
+   "label": "Previous Reading",
+   "read_only": 1
+  },
+  {
+   "fieldname": "current_reading",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Current Reading",
+   "reqd": 1
+  },
+  {
+   "fieldname": "consumption",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Consumption",
+   "read_only": 1
+  },
+  {
+   "fetch_from": "meter.utility_type",
+   "fieldname": "unit_of_measure",
+   "fieldtype": "Data",
+   "label": "Utility Type",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amount_due",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount Due",
+   "read_only": 1
+  },
+  {
+   "fieldname": "invoice",
+   "fieldtype": "Link",
+   "label": "Sales Invoice",
+   "options": "Sales Invoice",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_evidence",
+   "fieldtype": "Section Break",
+   "label": "Evidence"
+  },
+  {
+   "fieldname": "reading_image",
+   "fieldtype": "Attach Image",
+   "label": "Meter Photo"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Meter Reading",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-05-05 11:33:49.961217",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Meter Reading",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Accountant",
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "reading_date",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "meter",
+ "track_changes": 1
+}

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "autoname": "format:LAS-{YYYY}-{#####}",
- "creation": "2026-03-31 00:00:00.000000",
+ "creation": "2026-03-31 00:00:00",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -85,7 +85,8 @@
   "parent_lease",
   "section_notes",
   "special_conditions",
-  "internal_notes"
+  "internal_notes",
+  "amended_from"
  ],
  "fields": [
   {
@@ -102,11 +103,11 @@
    "reqd": 1
   },
   {
+   "fetch_from": "tenant.customer_name",
    "fieldname": "tenant_name",
    "fieldtype": "Data",
    "label": "Tenant Name",
-   "read_only": 1,
-   "fetch_from": "tenant.customer_name"
+   "read_only": 1
   },
   {
    "fieldname": "tenant_type",
@@ -141,7 +142,6 @@
   {
    "fieldname": "company",
    "fieldtype": "Link",
-   "in_list_view": 0,
    "label": "Company",
    "options": "Company",
    "reqd": 1
@@ -251,10 +251,10 @@
   },
   {
    "default": "0",
+   "description": "Fixed penalty charged when a cheque bounces; 0 = no penalty invoice",
    "fieldname": "bounce_penalty_amount",
    "fieldtype": "Currency",
-   "label": "PDC Bounce Penalty Amount",
-   "description": "Fixed penalty charged when a cheque bounces; 0 = no penalty invoice"
+   "label": "PDC Bounce Penalty Amount"
   },
   {
    "fieldname": "section_financial",
@@ -572,11 +572,21 @@
    "fieldname": "internal_notes",
    "fieldtype": "Text Editor",
    "label": "Internal Notes"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Lease",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2026-03-31 00:00:00.000000",
+ "modified": "2026-05-05 11:04:35.538455",
  "modified_by": "Administrator",
  "module": "Property Management",
  "name": "Lease",
@@ -623,12 +633,12 @@
    "select": 1
   },
   {
-   "match_field": "tenant",
    "read": 1,
    "role": "Tenant",
    "select": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "end_date",
  "sort_order": "ASC",
  "states": [],

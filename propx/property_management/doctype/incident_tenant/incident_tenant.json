@@ -1,0 +1,55 @@
+{
+ "actions": [],
+ "creation": "2026-04-29 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "tenant",
+  "unit",
+  "involvement_type",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "tenant",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Tenant",
+   "options": "Customer",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "tenant.name",
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Unit",
+   "options": "Property Unit"
+  },
+  {
+   "default": "Witness",
+   "fieldname": "involvement_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Involvement",
+   "options": "Complainant\nWitness\nSubject\nVictim"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-04-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Incident Tenant",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

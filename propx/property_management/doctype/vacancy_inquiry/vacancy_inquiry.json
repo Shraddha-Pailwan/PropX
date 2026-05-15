@@ -1,0 +1,86 @@
+{
+ "actions": [],
+ "creation": "2026-04-29 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "inquiry_date",
+  "prospect_name",
+  "phone",
+  "email",
+  "source",
+  "broker_name",
+  "status",
+  "notes",
+  "next_action_date"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "inquiry_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Inquiry Date"
+  },
+  {
+   "fieldname": "prospect_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Prospect Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "source",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Source",
+   "options": "Walk-in\nWebsite\nBroker\nReferral\nBayut\nPropertyFinder\nDubizzle\nOther"
+  },
+  {
+   "fieldname": "broker_name",
+   "fieldtype": "Data",
+   "label": "Broker Name"
+  },
+  {
+   "default": "New",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "New\nFollowed Up\nViewing Scheduled\nOffer Made\nConverted\nLost"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "next_action_date",
+   "fieldtype": "Date",
+   "label": "Next Action Date"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-04-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Vacancy Inquiry",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

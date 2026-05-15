@@ -1,7 +1,7 @@
 {
  "actions": [],
  "autoname": "format:INSP-{YYYY}-{#####}",
- "creation": "2026-03-31 00:00:00.000000",
+ "creation": "2026-03-31 00:00:00",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -31,7 +31,8 @@
   "tenant_signature",
   "manager_signature",
   "notes",
-  "inspection_report"
+  "inspection_report",
+  "amended_from"
  ],
  "fields": [
   {
@@ -202,11 +203,21 @@
    "fieldtype": "Attach",
    "label": "Inspection Report (PDF)",
    "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Property Inspection",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2026-03-31 00:00:00.000000",
+ "modified": "2026-05-05 11:32:23.994802",
  "modified_by": "Administrator",
  "module": "Property Management",
  "name": "Property Inspection",
@@ -242,11 +253,11 @@
    "write": 1
   },
   {
-   "match_field": "tenant",
    "read": 1,
    "role": "Tenant"
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "inspection_date",
  "sort_order": "DESC",
  "states": [],

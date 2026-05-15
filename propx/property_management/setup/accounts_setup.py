@@ -31,9 +31,9 @@ UAE_INCOME_ACCOUNTS = [
 ]
 
 UAE_LIABILITY_ACCOUNTS = [
-    ("Security Deposits Payable", "Current Liabilities"),
-    ("VAT Payable - FTA",         "Current Liabilities"),
-    ("Advance Rent Received",     "Current Liabilities"),
+    ("Security Deposits Payable", "Current Liability"),
+    ("VAT Payable - FTA",         "Tax"),
+    ("Advance Rent Received",     "Current Liability"),
 ]
 
 UAE_EXPENSE_ACCOUNTS = [
@@ -47,11 +47,11 @@ UAE_EXPENSE_ACCOUNTS = [
 ]
 
 KSA_ACCOUNTS = [
-    ("VAT Payable - GAZT", "Current Liabilities"),
+    ("VAT Payable - GAZT", "Tax"),
 ]
 
 OMAN_ACCOUNTS = [
-    ("VAT Payable - OTA", "Current Liabilities"),
+    ("VAT Payable - OTA", "Tax"),
 ]
 
 TAX_TEMPLATES = [
@@ -81,15 +81,15 @@ def _create_account(account_name, account_type, company, parent_account=None):
         return full_name
 
     if not parent_account:
-        if "Income" in account_type:
+        if account_type in ("Income Account", "Indirect Income", "Direct Income"):
             parent_account = frappe.db.get_value(
                 "Account", {"root_type": "Income", "is_group": 1, "company": company}, "name"
             )
-        elif "Liabilities" in account_type:
+        elif account_type in ("Current Liability", "Tax", "Liability", "Payable"):
             parent_account = frappe.db.get_value(
                 "Account", {"root_type": "Liability", "is_group": 1, "company": company}, "name"
             )
-        elif "Expense" in account_type:
+        elif account_type in ("Expense Account", "Indirect Expense", "Direct Expense"):
             parent_account = frappe.db.get_value(
                 "Account", {"root_type": "Expense", "is_group": 1, "company": company}, "name"
             )

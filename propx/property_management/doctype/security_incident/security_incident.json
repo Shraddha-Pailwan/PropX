@@ -1,0 +1,157 @@
+{
+ "actions": [],
+ "autoname": "format:INC-{YYYY}-{###}",
+ "creation": "2026-04-29 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "property",
+  "incident_type",
+  "status",
+  "col_break_1",
+  "incident_datetime",
+  "location_detail",
+  "reported_by",
+  "section_description",
+  "description",
+  "section_parties",
+  "tenants_involved",
+  "section_resolution",
+  "police_report_no",
+  "resolution",
+  "section_photos",
+  "photos"
+ ],
+ "fields": [
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "incident_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Incident Type",
+   "options": "Trespass\nTheft\nVandalism\nFire\nMedical\nNoise Complaint\nUnauthorised Access\nOther",
+   "reqd": 1
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Open\nUnder Investigation\nResolved\nClosed"
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "incident_datetime",
+   "fieldtype": "Datetime",
+   "in_list_view": 1,
+   "label": "Incident Date & Time",
+   "reqd": 1
+  },
+  {
+   "description": "e.g. Basement Parking Level 2, Lobby, Unit 405",
+   "fieldname": "location_detail",
+   "fieldtype": "Data",
+   "label": "Location Detail"
+  },
+  {
+   "fieldname": "reported_by",
+   "fieldtype": "Link",
+   "label": "Reported By (Guard)",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "section_description",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Incident Description",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_parties",
+   "fieldtype": "Section Break",
+   "label": "Tenants Involved"
+  },
+  {
+   "fieldname": "tenants_involved",
+   "fieldtype": "Table",
+   "label": "Tenants Involved",
+   "options": "Incident Tenant"
+  },
+  {
+   "fieldname": "section_resolution",
+   "fieldtype": "Section Break",
+   "label": "Resolution"
+  },
+  {
+   "fieldname": "police_report_no",
+   "fieldtype": "Data",
+   "label": "Police Report No."
+  },
+  {
+   "fieldname": "resolution",
+   "fieldtype": "Text",
+   "label": "Resolution / Action Taken"
+  },
+  {
+   "fieldname": "section_photos",
+   "fieldtype": "Section Break",
+   "label": "Photos"
+  },
+  {
+   "fieldname": "photos",
+   "fieldtype": "Table",
+   "label": "Photos",
+   "options": "Maintenance Photo"
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-05 11:34:33.570650",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Security Incident",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Security Guard",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "incident_datetime",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "incident_type",
+ "track_changes": 1
+}

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "autoname": "format:PDC-{YYYY}-{#####}",
- "creation": "2026-03-31 00:00:00.000000",
+ "creation": "2026-03-31 00:00:00",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -102,12 +102,12 @@
    "label": "Dates"
   },
   {
+   "description": "Due / presentation date",
    "fieldname": "cheque_date",
    "fieldtype": "Date",
    "in_list_view": 1,
    "label": "Cheque Date",
-   "reqd": 1,
-   "description": "Due / presentation date"
+   "reqd": 1
   },
   {
    "default": "Today",
@@ -239,12 +239,12 @@
    "label": "Accounting"
   },
   {
+   "description": "Auto-created on clear",
    "fieldname": "payment_entry",
    "fieldtype": "Link",
    "label": "Payment Entry",
    "options": "Payment Entry",
-   "read_only": 1,
-   "description": "Auto-created on clear"
+   "read_only": 1
   },
   {
    "fieldname": "deposit_batch",
@@ -266,7 +266,7 @@
   }
  ],
  "links": [],
- "modified": "2026-03-31 00:00:00.000000",
+ "modified": "2026-05-05 11:36:16.774599",
  "modified_by": "Administrator",
  "module": "Property Management",
  "name": "PDC Register",
@@ -306,6 +306,7 @@
    "select": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "cheque_date",
  "sort_order": "ASC",
  "states": [],

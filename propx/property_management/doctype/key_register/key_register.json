@@ -1,0 +1,137 @@
+{
+ "actions": [],
+ "autoname": "format:KEY-{####}",
+ "creation": "2026-04-29 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "property",
+  "unit",
+  "key_type",
+  "key_number",
+  "col_break_1",
+  "total_copies",
+  "status",
+  "section_issuance",
+  "current_holder",
+  "issued_date",
+  "returned_date",
+  "section_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Property Unit",
+   "options": "Property Unit"
+  },
+  {
+   "fieldname": "key_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Key Type",
+   "options": "Unit Key\nMaster Key\nParking\nPost Box\nOther"
+  },
+  {
+   "fieldname": "key_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Key Number",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "2",
+   "fieldname": "total_copies",
+   "fieldtype": "Int",
+   "label": "Total Copies"
+  },
+  {
+   "default": "Available",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Available\nIssued\nLost\nDamaged"
+  },
+  {
+   "fieldname": "section_issuance",
+   "fieldtype": "Section Break",
+   "label": "Issuance"
+  },
+  {
+   "fieldname": "current_holder",
+   "fieldtype": "Link",
+   "label": "Current Holder (Tenant)",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "issued_date",
+   "fieldtype": "Date",
+   "label": "Issued Date"
+  },
+  {
+   "fieldname": "returned_date",
+   "fieldtype": "Date",
+   "label": "Returned Date"
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-05 11:33:35.371025",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Key Register",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Security Guard",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "key_number",
+ "track_changes": 1
+}

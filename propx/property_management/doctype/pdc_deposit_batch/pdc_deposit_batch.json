@@ -1,7 +1,7 @@
 {
  "actions": [],
  "autoname": "format:DBATCH-{YYYY}{MM}-{###}",
- "creation": "2026-03-31 00:00:00.000000",
+ "creation": "2026-03-31 00:00:00",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -89,7 +89,7 @@
   }
  ],
  "links": [],
- "modified": "2026-03-31 00:00:00.000000",
+ "modified": "2026-05-05 10:59:13.837433",
  "modified_by": "Administrator",
  "module": "Property Management",
  "name": "PDC Deposit Batch",
@@ -123,6 +123,7 @@
    "write": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "batch_date",
  "sort_order": "DESC",
  "states": []

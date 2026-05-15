@@ -1,7 +1,7 @@
 {
  "actions": [],
  "autoname": "format:PRE-{YYYY}-{MM}-{#####}",
- "creation": "2026-03-31 00:00:00.000000",
+ "creation": "2026-03-31 00:00:00",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -98,11 +98,11 @@
    "read_only": 1
   },
   {
+   "description": "max(0, gross_sales - threshold)",
    "fieldname": "overage_amount",
    "fieldtype": "Currency",
    "label": "Overage Amount",
-   "read_only": 1,
-   "description": "max(0, gross_sales - threshold)"
+   "read_only": 1
   },
   {
    "fieldname": "percentage_rate",
@@ -111,12 +111,12 @@
    "read_only": 1
   },
   {
+   "description": "overage \u00d7 rate",
    "fieldname": "percentage_rent_due",
    "fieldtype": "Currency",
    "in_list_view": 1,
    "label": "Percentage Rent Due",
-   "read_only": 1,
-   "description": "overage × rate"
+   "read_only": 1
   },
   {
    "fieldname": "section_invoice",
@@ -140,7 +140,7 @@
   }
  ],
  "links": [],
- "modified": "2026-03-31 00:00:00.000000",
+ "modified": "2026-05-05 11:17:09.572340",
  "modified_by": "Administrator",
  "module": "Property Management",
  "name": "Percentage Rent Entry",
@@ -177,6 +177,7 @@
    "select": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "period_from",
  "sort_order": "DESC",
  "states": []

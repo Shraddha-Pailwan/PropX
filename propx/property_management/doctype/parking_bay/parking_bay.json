@@ -1,7 +1,7 @@
 {
  "actions": [],
  "autoname": "format:PARK-{####}",
- "creation": "2026-03-31 00:00:00.000000",
+ "creation": "2026-03-31 00:00:00",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
@@ -47,16 +47,16 @@
    "reqd": 1
   },
   {
+   "description": "e.g. B1-045, Level 2",
    "fieldname": "bay_label",
    "fieldtype": "Data",
-   "label": "Bay Label",
-   "description": "e.g. B1-045, Level 2"
+   "label": "Bay Label"
   },
   {
+   "description": "Basement 1, Ground, Podium...",
    "fieldname": "level",
    "fieldtype": "Data",
-   "label": "Level",
-   "description": "Basement 1, Ground, Podium..."
+   "label": "Level"
   },
   {
    "fieldname": "bay_type",
@@ -149,7 +149,7 @@
   }
  ],
  "links": [],
- "modified": "2026-03-31 00:00:00.000000",
+ "modified": "2026-05-05 11:35:31.125958",
  "modified_by": "Administrator",
  "module": "Property Management",
  "name": "Parking Bay",
@@ -182,6 +182,7 @@
    "select": 1
   }
  ],
+ "row_format": "Dynamic",
  "sort_field": "bay_number",
  "sort_order": "ASC",
  "states": []

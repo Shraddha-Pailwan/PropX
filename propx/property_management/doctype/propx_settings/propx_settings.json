@@ -1,240 +1,239 @@
 {
-  "actions": [],
-  "creation": "2026-03-31 00:00:00.000000",
-  "doctype": "DocType",
-  "document_type": "Other",
-  "editable_grid": 0,
-  "engine": "InnoDB",
-  "field_order": [
-    "whatsapp_section",
-    "whatsapp_provider",
-    "wati_api_url",
-    "wati_api_token",
-    "col_break_wati",
-    "twilio_account_sid",
-    "twilio_auth_token",
-    "twilio_whatsapp_from",
-    "billing_section",
-    "late_payment_grace_days",
-    "late_fee_rate",
-    "bounce_penalty_amount",
-    "col_break_billing",
-    "default_security_deposit_months",
-    "default_notice_period_days",
-    "invoice_generation_day",
-    "maintenance_cost_approval_threshold",
-    "esign_section",
-    "esign_provider",
-    "esign_api_key",
-    "esign_api_url",
-    "credit_section",
-    "credit_bureau_provider",
-    "credit_bureau_api_key",
-    "credit_bureau_api_url",
-    "rera_section",
-    "rera_api_enabled",
-    "rera_api_key"
-  ],
-  "fields": [
-    {
-      "fieldname": "whatsapp_section",
-      "fieldtype": "Section Break",
-      "label": "WhatsApp Integration"
-    },
-    {
-      "fieldname": "whatsapp_provider",
-      "fieldtype": "Select",
-      "label": "WhatsApp Provider",
-      "options": "none\nwati\ntwilio",
-      "default": "none"
-    },
-    {
-      "fieldname": "wati_api_url",
-      "fieldtype": "Data",
-      "label": "WATI API URL",
-      "depends_on": "eval:doc.whatsapp_provider=='wati'"
-    },
-    {
-      "fieldname": "wati_api_token",
-      "fieldtype": "Password",
-      "label": "WATI API Token",
-      "depends_on": "eval:doc.whatsapp_provider=='wati'"
-    },
-    {
-      "fieldname": "col_break_wati",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "twilio_account_sid",
-      "fieldtype": "Data",
-      "label": "Twilio Account SID",
-      "depends_on": "eval:doc.whatsapp_provider=='twilio'"
-    },
-    {
-      "fieldname": "twilio_auth_token",
-      "fieldtype": "Password",
-      "label": "Twilio Auth Token",
-      "depends_on": "eval:doc.whatsapp_provider=='twilio'"
-    },
-    {
-      "fieldname": "twilio_whatsapp_from",
-      "fieldtype": "Data",
-      "label": "Twilio WhatsApp From Number",
-      "depends_on": "eval:doc.whatsapp_provider=='twilio'"
-    },
-    {
-      "fieldname": "billing_section",
-      "fieldtype": "Section Break",
-      "label": "Billing Defaults"
-    },
-    {
-      "default": "5",
-      "fieldname": "late_payment_grace_days",
-      "fieldtype": "Int",
-      "label": "Late Payment Grace Days"
-    },
-    {
-      "default": "5",
-      "fieldname": "late_fee_rate",
-      "fieldtype": "Percent",
-      "label": "Late Fee Rate (%)"
-    },
-    {
-      "default": "500",
-      "fieldname": "bounce_penalty_amount",
-      "fieldtype": "Currency",
-      "label": "Cheque Bounce Penalty Amount"
-    },
-    {
-      "fieldname": "col_break_billing",
-      "fieldtype": "Column Break"
-    },
-    {
-      "default": "2",
-      "fieldname": "default_security_deposit_months",
-      "fieldtype": "Int",
-      "label": "Default Security Deposit (months)"
-    },
-    {
-      "default": "90",
-      "fieldname": "default_notice_period_days",
-      "fieldtype": "Int",
-      "label": "Default Notice Period (days)"
-    },
-    {
-      "default": "1",
-      "fieldname": "invoice_generation_day",
-      "fieldtype": "Int",
-      "label": "Invoice Generation Day of Month"
-    },
-    {
-      "default": "5000",
-      "fieldname": "maintenance_cost_approval_threshold",
-      "fieldtype": "Currency",
-      "label": "Maintenance Cost Approval Threshold (AED)"
-    },
-    {
-      "fieldname": "esign_section",
-      "fieldtype": "Section Break",
-      "label": "E-Signature"
-    },
-    {
-      "default": "none",
-      "fieldname": "esign_provider",
-      "fieldtype": "Select",
-      "label": "E-Signature Provider",
-      "options": "none\ndocusign\nhellosign"
-    },
-    {
-      "fieldname": "esign_api_key",
-      "fieldtype": "Password",
-      "label": "E-Sign API Key",
-      "depends_on": "eval:doc.esign_provider!='none'"
-    },
-    {
-      "fieldname": "esign_api_url",
-      "fieldtype": "Data",
-      "label": "E-Sign API URL",
-      "depends_on": "eval:doc.esign_provider!='none'"
-    },
-    {
-      "fieldname": "credit_section",
-      "fieldtype": "Section Break",
-      "label": "Credit Bureau (GCC)"
-    },
-    {
-      "default": "none",
-      "fieldname": "credit_bureau_provider",
-      "fieldtype": "Select",
-      "label": "Credit Bureau Provider",
-      "options": "none\nal_etihad\nsimah"
-    },
-    {
-      "fieldname": "credit_bureau_api_key",
-      "fieldtype": "Password",
-      "label": "Credit Bureau API Key",
-      "depends_on": "eval:doc.credit_bureau_provider!='none'"
-    },
-    {
-      "fieldname": "credit_bureau_api_url",
-      "fieldtype": "Data",
-      "label": "Credit Bureau API URL",
-      "depends_on": "eval:doc.credit_bureau_provider!='none'"
-    },
-    {
-      "fieldname": "rera_section",
-      "fieldtype": "Section Break",
-      "label": "RERA Integration"
-    },
-    {
-      "default": "0",
-      "fieldname": "rera_api_enabled",
-      "fieldtype": "Check",
-      "label": "Enable RERA API"
-    },
-    {
-      "fieldname": "rera_api_key",
-      "fieldtype": "Password",
-      "label": "RERA API Key",
-      "depends_on": "eval:doc.rera_api_enabled==1"
-    }
-  ],
-  "icon": "fa fa-cog",
-  "index_web_pages_for_search": 0,
-  "issingle": 1,
-  "links": [],
-  "modified": "2026-03-31 00:00:00.000000",
-  "modified_by": "Administrator",
-  "module": "Property Management",
-  "name": "PropX Settings",
-  "owner": "Administrator",
-  "permissions": [
-    {
-      "create": 1,
-      "delete": 0,
-      "email": 0,
-      "export": 0,
-      "print": 0,
-      "read": 1,
-      "report": 0,
-      "role": "PropX Admin",
-      "share": 0,
-      "write": 1
-    },
-    {
-      "create": 0,
-      "delete": 0,
-      "email": 0,
-      "export": 0,
-      "print": 0,
-      "read": 1,
-      "report": 0,
-      "role": "System Manager",
-      "share": 0,
-      "write": 1
-    }
-  ],
-  "sort_field": "modified",
-  "sort_order": "DESC",
-  "track_changes": 0
+ "actions": [],
+ "creation": "2026-03-31 00:00:00",
+ "doctype": "DocType",
+ "document_type": "Other",
+ "engine": "InnoDB",
+ "field_order": [
+  "whatsapp_section",
+  "whatsapp_provider",
+  "wati_api_url",
+  "wati_api_token",
+  "col_break_wati",
+  "twilio_account_sid",
+  "twilio_auth_token",
+  "twilio_whatsapp_from",
+  "billing_section",
+  "late_payment_grace_days",
+  "late_fee_rate",
+  "bounce_penalty_amount",
+  "col_break_billing",
+  "default_security_deposit_months",
+  "default_notice_period_days",
+  "invoice_generation_day",
+  "maintenance_cost_approval_threshold",
+  "esign_section",
+  "esign_provider",
+  "esign_api_key",
+  "esign_api_url",
+  "credit_section",
+  "credit_bureau_provider",
+  "credit_bureau_api_key",
+  "credit_bureau_api_url",
+  "rera_section",
+  "rera_api_enabled",
+  "rera_api_key",
+  "ai_section",
+  "claude_api_key"
+ ],
+ "fields": [
+  {
+   "fieldname": "whatsapp_section",
+   "fieldtype": "Section Break",
+   "label": "WhatsApp Integration"
+  },
+  {
+   "default": "none",
+   "fieldname": "whatsapp_provider",
+   "fieldtype": "Select",
+   "label": "WhatsApp Provider",
+   "options": "none\nwati\ntwilio"
+  },
+  {
+   "depends_on": "eval:doc.whatsapp_provider=='wati'",
+   "fieldname": "wati_api_url",
+   "fieldtype": "Data",
+   "label": "WATI API URL"
+  },
+  {
+   "depends_on": "eval:doc.whatsapp_provider=='wati'",
+   "fieldname": "wati_api_token",
+   "fieldtype": "Password",
+   "label": "WATI API Token"
+  },
+  {
+   "fieldname": "col_break_wati",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.whatsapp_provider=='twilio'",
+   "fieldname": "twilio_account_sid",
+   "fieldtype": "Data",
+   "label": "Twilio Account SID"
+  },
+  {
+   "depends_on": "eval:doc.whatsapp_provider=='twilio'",
+   "fieldname": "twilio_auth_token",
+   "fieldtype": "Password",
+   "label": "Twilio Auth Token"
+  },
+  {
+   "depends_on": "eval:doc.whatsapp_provider=='twilio'",
+   "fieldname": "twilio_whatsapp_from",
+   "fieldtype": "Data",
+   "label": "Twilio WhatsApp From Number"
+  },
+  {
+   "fieldname": "billing_section",
+   "fieldtype": "Section Break",
+   "label": "Billing Defaults"
+  },
+  {
+   "default": "5",
+   "fieldname": "late_payment_grace_days",
+   "fieldtype": "Int",
+   "label": "Late Payment Grace Days"
+  },
+  {
+   "default": "5",
+   "fieldname": "late_fee_rate",
+   "fieldtype": "Percent",
+   "label": "Late Fee Rate (%)"
+  },
+  {
+   "default": "500",
+   "fieldname": "bounce_penalty_amount",
+   "fieldtype": "Currency",
+   "label": "Cheque Bounce Penalty Amount"
+  },
+  {
+   "fieldname": "col_break_billing",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "2",
+   "fieldname": "default_security_deposit_months",
+   "fieldtype": "Int",
+   "label": "Default Security Deposit (months)"
+  },
+  {
+   "default": "90",
+   "fieldname": "default_notice_period_days",
+   "fieldtype": "Int",
+   "label": "Default Notice Period (days)"
+  },
+  {
+   "default": "1",
+   "fieldname": "invoice_generation_day",
+   "fieldtype": "Int",
+   "label": "Invoice Generation Day of Month"
+  },
+  {
+   "default": "5000",
+   "fieldname": "maintenance_cost_approval_threshold",
+   "fieldtype": "Currency",
+   "label": "Maintenance Cost Approval Threshold (AED)"
+  },
+  {
+   "fieldname": "esign_section",
+   "fieldtype": "Section Break",
+   "label": "E-Signature"
+  },
+  {
+   "default": "none",
+   "fieldname": "esign_provider",
+   "fieldtype": "Select",
+   "label": "E-Signature Provider",
+   "options": "none\ndocusign\nhellosign"
+  },
+  {
+   "depends_on": "eval:doc.esign_provider!='none'",
+   "fieldname": "esign_api_key",
+   "fieldtype": "Password",
+   "label": "E-Sign API Key"
+  },
+  {
+   "depends_on": "eval:doc.esign_provider!='none'",
+   "fieldname": "esign_api_url",
+   "fieldtype": "Data",
+   "label": "E-Sign API URL"
+  },
+  {
+   "fieldname": "credit_section",
+   "fieldtype": "Section Break",
+   "label": "Credit Bureau (GCC)"
+  },
+  {
+   "default": "none",
+   "fieldname": "credit_bureau_provider",
+   "fieldtype": "Select",
+   "label": "Credit Bureau Provider",
+   "options": "none\nal_etihad\nsimah"
+  },
+  {
+   "depends_on": "eval:doc.credit_bureau_provider!='none'",
+   "fieldname": "credit_bureau_api_key",
+   "fieldtype": "Password",
+   "label": "Credit Bureau API Key"
+  },
+  {
+   "depends_on": "eval:doc.credit_bureau_provider!='none'",
+   "fieldname": "credit_bureau_api_url",
+   "fieldtype": "Data",
+   "label": "Credit Bureau API URL"
+  },
+  {
+   "fieldname": "rera_section",
+   "fieldtype": "Section Break",
+   "label": "RERA Integration"
+  },
+  {
+   "default": "0",
+   "fieldname": "rera_api_enabled",
+   "fieldtype": "Check",
+   "label": "Enable RERA API"
+  },
+  {
+   "depends_on": "eval:doc.rera_api_enabled==1",
+   "fieldname": "rera_api_key",
+   "fieldtype": "Password",
+   "label": "RERA API Key"
+  },
+  {
+   "fieldname": "ai_section",
+   "fieldtype": "Section Break",
+   "label": "AI & Automation"
+  },
+  {
+   "description": "Anthropic Claude API key for lease abstraction and AI rent pricing.",
+   "fieldname": "claude_api_key",
+   "fieldtype": "Password",
+   "label": "Claude API Key"
+  }
+ ],
+ "icon": "fa fa-cog",
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-05-05 11:37:09.610500",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "PropX Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "read": 1,
+   "role": "PropX Admin",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "System Manager",
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
 }

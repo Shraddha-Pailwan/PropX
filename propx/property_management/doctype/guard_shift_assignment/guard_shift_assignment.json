@@ -1,0 +1,61 @@
+{
+ "actions": [],
+ "creation": "2026-04-29 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "employee",
+  "post",
+  "status",
+  "check_in_time",
+  "check_out_time"
+ ],
+ "fields": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Employee",
+   "options": "Employee",
+   "reqd": 1
+  },
+  {
+   "fieldname": "post",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Post",
+   "description": "e.g. Main Gate, Lobby, Parking, Patrol"
+  },
+  {
+   "default": "Scheduled",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Scheduled\nOn Duty\nAbsent\nLeft Early"
+  },
+  {
+   "fieldname": "check_in_time",
+   "fieldtype": "Time",
+   "in_list_view": 1,
+   "label": "Check-In"
+  },
+  {
+   "fieldname": "check_out_time",
+   "fieldtype": "Time",
+   "label": "Check-Out"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "istable": 1,
+ "links": [],
+ "modified": "2026-04-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Guard Shift Assignment",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

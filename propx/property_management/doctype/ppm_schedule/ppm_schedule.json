@@ -1,164 +1,152 @@
 {
-  "actions": [],
-  "autoname": "format:PPM-{####}",
-  "creation": "2026-03-31 00:00:00.000000",
-  "doctype": "DocType",
-  "document_type": "Document",
-  "editable_grid": 0,
-  "engine": "InnoDB",
-  "field_order": [
-    "title",
-    "property",
-    "unit",
-    "category",
-    "frequency",
-    "next_due_date",
-    "last_done_date",
-    "col_break_1",
-    "assigned_to",
-    "vendor",
-    "estimated_duration_hours",
-    "estimated_cost",
-    "is_active",
-    "description"
-  ],
-  "fields": [
-    {
-      "bold": 1,
-      "fieldname": "title",
-      "fieldtype": "Data",
-      "in_list_view": 1,
-      "label": "Title",
-      "reqd": 1
-    },
-    {
-      "fieldname": "property",
-      "fieldtype": "Link",
-      "in_list_view": 1,
-      "label": "Property",
-      "options": "Property",
-      "reqd": 1
-    },
-    {
-      "fieldname": "unit",
-      "fieldtype": "Link",
-      "label": "Property Unit",
-      "options": "Property Unit"
-    },
-    {
-      "fieldname": "category",
-      "fieldtype": "Select",
-      "in_list_view": 1,
-      "label": "Category",
-      "options": "Plumbing\nElectrical\nHVAC\nCivil\nMechanical\nSafety\nCleaning\nPest Control\nPainting\nLifts\nOther"
-    },
-    {
-      "fieldname": "frequency",
-      "fieldtype": "Select",
-      "in_list_view": 1,
-      "label": "Frequency",
-      "options": "Daily\nWeekly\nMonthly\nQuarterly\nSemi-Annual\nAnnual",
-      "reqd": 1
-    },
-    {
-      "fieldname": "next_due_date",
-      "fieldtype": "Date",
-      "in_list_view": 1,
-      "label": "Next Due Date",
-      "reqd": 1
-    },
-    {
-      "fieldname": "last_done_date",
-      "fieldtype": "Date",
-      "label": "Last Done Date",
-      "read_only": 1
-    },
-    {
-      "fieldname": "col_break_1",
-      "fieldtype": "Column Break"
-    },
-    {
-      "fieldname": "assigned_to",
-      "fieldtype": "Link",
-      "label": "Assigned To",
-      "options": "Employee"
-    },
-    {
-      "fieldname": "vendor",
-      "fieldtype": "Link",
-      "label": "Vendor",
-      "options": "Supplier"
-    },
-    {
-      "fieldname": "estimated_duration_hours",
-      "fieldtype": "Float",
-      "label": "Estimated Duration (hours)"
-    },
-    {
-      "fieldname": "estimated_cost",
-      "fieldtype": "Currency",
-      "label": "Estimated Cost"
-    },
-    {
-      "default": "1",
-      "fieldname": "is_active",
-      "fieldtype": "Check",
-      "label": "Is Active"
-    },
-    {
-      "fieldname": "description",
-      "fieldtype": "Text",
-      "label": "Description"
-    }
-  ],
-  "index_web_pages_for_search": 0,
-  "links": [],
-  "modified": "2026-03-31 00:00:00.000000",
-  "modified_by": "Administrator",
-  "module": "Property Management",
-  "name": "PPM Schedule",
-  "naming_rule": "Expression (old style)",
-  "owner": "Administrator",
-  "permissions": [
-    {
-      "create": 1,
-      "delete": 1,
-      "email": 1,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "PropX Admin",
-      "share": 1,
-      "write": 1
-    },
-    {
-      "create": 1,
-      "delete": 0,
-      "email": 0,
-      "export": 1,
-      "print": 1,
-      "read": 1,
-      "report": 1,
-      "role": "Property Manager",
-      "share": 0,
-      "write": 1
-    },
-    {
-      "create": 0,
-      "delete": 0,
-      "email": 0,
-      "export": 0,
-      "print": 0,
-      "read": 1,
-      "report": 0,
-      "role": "Maintenance Technician",
-      "share": 0,
-      "write": 0
-    }
-  ],
-  "sort_field": "next_due_date",
-  "sort_order": "ASC",
-  "title_field": "title",
-  "track_changes": 0
+ "actions": [],
+ "autoname": "format:PPM-{####}",
+ "creation": "2026-03-31 00:00:00",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "title",
+  "property",
+  "unit",
+  "category",
+  "frequency",
+  "next_due_date",
+  "last_done_date",
+  "col_break_1",
+  "assigned_to",
+  "vendor",
+  "estimated_duration_hours",
+  "estimated_cost",
+  "is_active",
+  "description"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Title",
+   "reqd": 1
+  },
+  {
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property",
+   "options": "Property",
+   "reqd": 1
+  },
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "label": "Property Unit",
+   "options": "Property Unit"
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Category",
+   "options": "Plumbing\nElectrical\nHVAC\nCivil\nMechanical\nSafety\nCleaning\nPest Control\nPainting\nLifts\nOther"
+  },
+  {
+   "fieldname": "frequency",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Frequency",
+   "options": "Daily\nWeekly\nMonthly\nQuarterly\nSemi-Annual\nAnnual",
+   "reqd": 1
+  },
+  {
+   "fieldname": "next_due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Next Due Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "last_done_date",
+   "fieldtype": "Date",
+   "label": "Last Done Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "assigned_to",
+   "fieldtype": "Link",
+   "label": "Assigned To",
+   "options": "Employee"
+  },
+  {
+   "fieldname": "vendor",
+   "fieldtype": "Link",
+   "label": "Vendor",
+   "options": "Supplier"
+  },
+  {
+   "fieldname": "estimated_duration_hours",
+   "fieldtype": "Float",
+   "label": "Estimated Duration (hours)"
+  },
+  {
+   "fieldname": "estimated_cost",
+   "fieldtype": "Currency",
+   "label": "Estimated Cost"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text",
+   "label": "Description"
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-05 11:36:32.453534",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "PPM Schedule",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "PropX Admin",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Maintenance Technician"
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "next_due_date",
+ "sort_order": "ASC",
+ "states": [],
+ "title_field": "title"
 }

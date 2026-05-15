@@ -1,0 +1,150 @@
+{
+ "actions": [],
+ "autoname": "format:LAPP-{YYYY}-{#####}",
+ "creation": "2026-04-29 00:00:00",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "vacancy_listing",
+  "application_status",
+  "section_applicant",
+  "applicant_name",
+  "applicant_type",
+  "email",
+  "phone",
+  "col_break_1",
+  "trade_licence_no",
+  "desired_start_date",
+  "proposed_rent",
+  "section_kyc",
+  "kyc_documents",
+  "section_notes",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "vacancy_listing",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Vacancy Listing",
+   "options": "Vacancy Listing",
+   "reqd": 1
+  },
+  {
+   "default": "Submitted",
+   "fieldname": "application_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Application Status",
+   "options": "Submitted\nUnder Review\nApproved\nRejected"
+  },
+  {
+   "fieldname": "section_applicant",
+   "fieldtype": "Section Break",
+   "label": "Applicant Details"
+  },
+  {
+   "fieldname": "applicant_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Applicant Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "applicant_type",
+   "fieldtype": "Select",
+   "label": "Applicant Type",
+   "options": "Individual\nCorporate"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email",
+   "options": "Email"
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Data",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "col_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.applicant_type=='Corporate'",
+   "fieldname": "trade_licence_no",
+   "fieldtype": "Data",
+   "label": "Trade Licence No."
+  },
+  {
+   "fieldname": "desired_start_date",
+   "fieldtype": "Date",
+   "label": "Desired Start Date"
+  },
+  {
+   "fieldname": "proposed_rent",
+   "fieldtype": "Currency",
+   "label": "Proposed Rent (Annual)"
+  },
+  {
+   "fieldname": "section_kyc",
+   "fieldtype": "Section Break",
+   "label": "KYC Documents"
+  },
+  {
+   "fieldname": "kyc_documents",
+   "fieldtype": "Table",
+   "label": "KYC Documents",
+   "options": "Tenant KYC Document"
+  },
+  {
+   "fieldname": "section_notes",
+   "fieldtype": "Section Break",
+   "label": "Notes"
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text",
+   "label": "Notes"
+  }
+ ],
+ "links": [],
+ "modified": "2026-05-05 11:16:45.041790",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Lease Application",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Lease Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "applicant_name",
+ "track_changes": 1
+}

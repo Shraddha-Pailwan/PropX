@@ -1,0 +1,163 @@
+{
+ "actions": [],
+ "creation": "2026-04-29 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "unit",
+  "property",
+  "listing_status",
+  "asking_rent",
+  "available_from",
+  "listing_views",
+  "section_description",
+  "description",
+  "section_features",
+  "features",
+  "section_photos",
+  "photos",
+  "section_inquiries",
+  "inquiries"
+ ],
+ "fields": [
+  {
+   "fieldname": "unit",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property Unit",
+   "options": "Property Unit",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "unit.property",
+   "fieldname": "property",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Property",
+   "options": "Property",
+   "read_only": 1
+  },
+  {
+   "default": "Active",
+   "fieldname": "listing_status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Listing Status",
+   "options": "Active\nUnder Offer\nLeased\nWithdrawn",
+   "reqd": 1
+  },
+  {
+   "fieldname": "asking_rent",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Asking Rent (Annual)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "available_from",
+   "fieldtype": "Date",
+   "label": "Available From"
+  },
+  {
+   "default": "0",
+   "fieldname": "listing_views",
+   "fieldtype": "Int",
+   "label": "Listing Views",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_description",
+   "fieldtype": "Section Break",
+   "label": "Description"
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "label": "Description"
+  },
+  {
+   "fieldname": "section_features",
+   "fieldtype": "Section Break",
+   "label": "Features"
+  },
+  {
+   "fieldname": "features",
+   "fieldtype": "Table",
+   "label": "Features",
+   "options": "Listing Feature"
+  },
+  {
+   "fieldname": "section_photos",
+   "fieldtype": "Section Break",
+   "label": "Photos"
+  },
+  {
+   "fieldname": "photos",
+   "fieldtype": "Table",
+   "label": "Photos",
+   "options": "Unit Photo"
+  },
+  {
+   "fieldname": "section_inquiries",
+   "fieldtype": "Section Break",
+   "label": "Inquiries"
+  },
+  {
+   "fieldname": "inquiries",
+   "fieldtype": "Table",
+   "label": "Inquiries",
+   "options": "Vacancy Inquiry"
+  }
+ ],
+ "index_web_pages_for_search": 0,
+ "links": [],
+ "modified": "2026-04-29 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Property Management",
+ "name": "Vacancy Listing",
+ "naming_rule": "By fieldname",
+ "autoname": "field:unit",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Property Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 0,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Lease Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 0,
+   "delete": 0,
+   "email": 0,
+   "export": 0,
+   "print": 0,
+   "read": 1,
+   "report": 1,
+   "role": "Property Owner",
+   "share": 0,
+   "write": 0
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "unit",
+ "track_changes": 1
+}
